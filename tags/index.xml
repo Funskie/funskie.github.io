@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Funskie</title>
-    <link>/tags/</link>
+    <link>https://funskie.github.io/tags/</link>
     <description>Recent content in Tags on Funskie</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sat, 28 Aug 2021 17:18:52 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Aug 2021 17:18:52 +0800</lastBuildDate><atom:link href="https://funskie.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>閒聊</title>
-      <link>/tags/%E9%96%92%E8%81%8A/</link>
+      <link>https://funskie.github.io/tags/%E9%96%92%E8%81%8A/</link>
       <pubDate>Sat, 28 Aug 2021 17:18:52 +0800</pubDate>
       
-      <guid>/tags/%E9%96%92%E8%81%8A/</guid>
+      <guid>https://funskie.github.io/tags/%E9%96%92%E8%81%8A/</guid>
       <description></description>
     </item>
     
