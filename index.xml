@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Funskie</title>
-    <link>https://funskie.github.io/</link>
+    <link>https://blog.funskie.com/</link>
     <description>Recent content on Funskie</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sat, 28 Aug 2021 17:18:52 +0800</lastBuildDate><atom:link href="https://funskie.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Aug 2021 17:18:52 +0800</lastBuildDate><atom:link href="https://blog.funskie.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hello World!就是這麼老梗</title>
-      <link>https://funskie.github.io/posts/c01/</link>
+      <title>Hello World 就是這麼老梗</title>
+      <link>https://blog.funskie.com/posts/c01/</link>
       <pubDate>Sat, 28 Aug 2021 17:18:52 +0800</pubDate>
       
-      <guid>https://funskie.github.io/posts/c01/</guid>
+      <guid>https://blog.funskie.com/posts/c01/</guid>
       <description>Hello World 第一篇貼文感覺還是要下個儀式感強一點的Title，只好來個萬年老梗&amp;hellip; 一方面跟大家打聲招呼，一方面代表我的資訊能力、工程知識都在Hello world的等級，以後若有什麼誤導的地方，請大家直接下面diss指教 (預防針打好打滿)
 這裡會寫什麼？ 因為2021年決定回家鄉當工地打雜小弟，邊裝潢新婚的小房邊搞個智慧家庭，希望能紀錄一下房子慢慢變智慧的過程，還有一些自學、生活、工地經歷等趣事分享，基本上就是各種胡說八道，想寫什就寫什。
 文章索引 因為內容包山包海 (雜亂隨意)，所以我會盡量將文章用categories、tags做好分類管理方便大家索引，並開啟search頁面直接搜尋關鍵字找文章，感謝Hugo方便且有彈性的功能，讓我可以快速的建構這個網站。

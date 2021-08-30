@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Series on Funskie</title>
-    <link>https://funskie.github.io/series/</link>
+    <link>https://blog.funskie.com/series/</link>
     <description>Recent content in Series on Funskie</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language><atom:link href="https://funskie.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-tw</language><atom:link href="https://blog.funskie.com/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

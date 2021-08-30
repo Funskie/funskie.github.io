@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on Funskie</title>
-    <link>https://funskie.github.io/categories/</link>
+    <link>https://blog.funskie.com/categories/</link>
     <description>Recent content in Categories on Funskie</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sat, 28 Aug 2021 17:18:52 +0800</lastBuildDate><atom:link href="https://funskie.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Aug 2021 17:18:52 +0800</lastBuildDate><atom:link href="https://blog.funskie.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>胡說八道</title>
-      <link>https://funskie.github.io/categories/%E8%83%A1%E8%AA%AA%E5%85%AB%E9%81%93/</link>
+      <link>https://blog.funskie.com/categories/%E8%83%A1%E8%AA%AA%E5%85%AB%E9%81%93/</link>
       <pubDate>Sat, 28 Aug 2021 17:18:52 +0800</pubDate>
       
-      <guid>https://funskie.github.io/categories/%E8%83%A1%E8%AA%AA%E5%85%AB%E9%81%93/</guid>
+      <guid>https://blog.funskie.com/categories/%E8%83%A1%E8%AA%AA%E5%85%AB%E9%81%93/</guid>
       <description></description>
     </item>
     
