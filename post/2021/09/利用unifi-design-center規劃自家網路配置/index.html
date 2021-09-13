@@ -629,6 +629,12 @@ if (!doNotTrack) {
         
       
       
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="發表評論">
+            <i class="far fa-comment"></i>
+          </a>
+        </li>
+      
       <li class="post-action">
         
           <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
@@ -642,9 +648,29 @@ if (!doNotTrack) {
 
             
   
-    
-      <div class="fb-comments" data-href="https://funskie.com" data-width="" data-numposts="10" data-order-by=""></div>
-    
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'https:\/\/funskie.com\/post\/2021\/09\/%E5%88%A9%E7%94%A8unifi-design-center%E8%A6%8F%E5%8A%83%E8%87%AA%E5%AE%B6%E7%B6%B2%E8%B7%AF%E9%85%8D%E7%BD%AE\/';
+        
+          this.page.identifier = '\/post\/2021\/09\/%E5%88%A9%E7%94%A8unifi-design-center%E8%A6%8F%E5%8A%83%E8%87%AA%E5%AE%B6%E7%B6%B2%E8%B7%AF%E9%85%8D%E7%BD%AE\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'blog-funskie-com';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
   
 
 
@@ -709,6 +735,12 @@ if (!doNotTrack) {
           </li>
         
       
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="發表評論">
+            <i class="far fa-comment"></i>
+          </a>
+        </li>
       
       <li class="post-action">
         
