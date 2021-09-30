@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/funskie.com\/",
+  "author": {
+    "@type": "Person",
+    "name": "Funskie",
+    
+    "image": "https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/"
+    
+  },
+  "name":"Funskie",
+  "description":"\u003cp\u003e這篇文主要是介紹\u003cstrong\u003eunifi OS\u003c\/strong\u003e的基本設定，後續會再針對智慧家庭的設定做進階介紹。\u003c\/p\u003e",
+  "url":"https:\/\/funskie.com\/post\/2021\/09\/%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%ADunifi%E7%B6%B2%E8%B7%AF%E8%A8%AD%E5%AE%9A-%E5%88%9D%E5%A7%8B%E8%A8%AD%E5%AE%9A%E7%AF%87\/",
+  "keywords":"[tech]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.5.1-BETA">
+<meta name="author" content="Funskie">
+<meta name="keywords" content="tech">
+<meta name="description" content="這篇文主要是介紹unifi OS的基本設定，後續會再針對智慧家庭的設定做進階介紹。">
+
+
+<meta property="og:description" content="這篇文主要是介紹unifi OS的基本設定，後續會再針對智慧家庭的設定做進階介紹。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="智慧家庭Unifi網路設定  初始設定篇">
+<meta name="twitter:title" content="智慧家庭Unifi網路設定  初始設定篇">
+<meta property="og:url" content="https://funskie.com/post/2021/09/%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%ADunifi%E7%B6%B2%E8%B7%AF%E8%A8%AD%E5%AE%9A-%E5%88%9D%E5%A7%8B%E8%A8%AD%E5%AE%9A%E7%AF%87/">
+<meta property="twitter:url" content="https://funskie.com/post/2021/09/%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%ADunifi%E7%B6%B2%E8%B7%AF%E8%A8%AD%E5%AE%9A-%E5%88%9D%E5%A7%8B%E8%A8%AD%E5%AE%9A%E7%AF%87/">
+<meta property="og:site_name" content="Funskie">
+<meta property="og:description" content="這篇文主要是介紹unifi OS的基本設定，後續會再針對智慧家庭的設定做進階介紹。">
+<meta name="twitter:description" content="這篇文主要是介紹unifi OS的基本設定，後續會再針對智慧家庭的設定做進階介紹。">
+<meta property="og:locale" content="zh-tw">
+
+  
+    <meta property="article:published_time" content="2021-09-30T00:57:45">
+  
+  
+    <meta property="article:modified_time" content="2021-09-30T00:57:45">
+  
+  
+  
+    
+      <meta property="article:section" content="77house">
+    
+  
+  
+    
+      <meta property="article:tag" content="unifi">
+    
+      <meta property="article:tag" content="network">
+    
+      <meta property="article:tag" content="wifi">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/">
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/09/ci-0930.png">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/09/ci-0930.png">
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/09/ci-0930.png">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/09/ci-0930.png">
+
+
+<meta property="fb:app_id" content="&#123;877860206185200&#125;" />
+    <title>智慧家庭Unifi網路設定  初始設定篇</title>
+
+    <link rel="icon" href="https://funskie.com/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://funskie.com/post/2021/09/%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%ADunifi%E7%B6%B2%E8%B7%AF%E8%A8%AD%E5%AE%9A-%E5%88%9D%E5%A7%8B%E8%A8%AD%E5%AE%9A%E7%AF%87/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://funskie.com/css/style-2w2urpokyukbsouppglitcyxngrsa0pcm58rrm5mqo3ieqo6bkvr3cz9nvf.min.css" />
+    
+    
+    
+      
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MSSERYEY8E"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-MSSERYEY8E', { 'anonymize_ip': false });
+}
+</script>
+
+      
+    
+    
+
+    <script data-ad-client="ca-pub-2250984481230521" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v11.0&appId=877860206185200&autoLogAppEvents=1" nonce="MsVHMdid"></script>
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://funskie.com/" aria-label="去首頁">Funskie</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://funskie.com/#about" aria-label="打開鏈接: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/" alt="作者的圖片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://funskie.com/#about" aria-label="閱讀有關作者的更多信息">
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/" alt="作者的圖片" />
+        </a>
+        <h4 class="sidebar-profile-name">Funskie</h4>
+        
+          <h5 class="sidebar-profile-bio">科技宅菜鳥現場工程師筆記</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">首頁</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">分類</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">標籤</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">所有文章</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-address-card" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">關於</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Funskie" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.facebook.com/funs.key.5" target="_blank" rel="noopener" title="Facebook">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-facebook" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Facebook</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tzu-chi-fang-611895a3/" target="_blank" rel="noopener" title="Linkedin">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/09/ci-0930.png')"
+       data-behavior="5">
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
+               ">
+        <article class="post">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      智慧家庭Unifi網路設定  初始設定篇
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2021-09-30T00:57:45&#43;08:00">
+        
+  九月 30, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>分類</span>
+    
+      <a class="category-link" href="https://funskie.com/categories/77house">77house</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>這篇文主要是介紹<strong>unifi OS</strong>的基本設定，後續會再針對智慧家庭的設定做進階介紹。</p>
+<h1 id="unifi初始化與介面介紹">Unifi初始化與介面介紹</h1>
+<p><strong>unifi OS</strong>是很多人選擇信仰Unifi教派的一個特色之一，主要是他跟傳統很死板的網路設定軟體比起來真的是美觀很多，各種功能設定上也算直觀，重點是可以自己免費用<code>docker</code>裝在電腦或樹莓派上操作，免去未來還是付月費租網管軟體等費用，<em>金價五告甘心</em>！<strong>unifi OS</strong>其實有分成<strong>network(網路)</strong>、<strong>protect(監控)</strong>、<strong>access(門禁)</strong> 和 <strong>talk(語音)</strong> 等四大模組，我們這裡主要介紹網路模組的設定(<strong>UDM</strong>也只有包含<strong>network</strong>)。</p>
+<p><strong>UDM</strong>或<strong>UDM pro</strong>系列夢幻機都已經把<strong>unifi OS</strong>整合進機子了，所以設定上更方便簡單，當我們把<strong>UDM</strong>、<strong>switch</strong>還有<strong>AP</strong>們都接好以後，只要在<strong>UDM</strong>附近用手機下載開啟<strong>UniFi Network</strong> APP，APP就會自動偵測你的<strong>UDM</strong>設備(要開啟手機藍芽跟WiFi)，接著就照APP指示一步步往下執行就可完成初始化了，下面大概簡述一下APP初始設定的各個步驟：</p>
+<ol>
+<li>給你的UDM一個可愛的名字</li>
+<li>選擇是商用還是居家使用(商用需要進一步填寫商家資料)</li>
+<li>登入你的Unifi帳號(這組帳號以後遠端管理網路設定會用到)</li>
+<li>選擇是否讓unifi官方自動幫你做網路設定，適合對網路設定不熟或是很懶的人</li>
+<li>給你主要WiFi網路一個可愛的名字跟密碼</li>
+<li>設定軟體更新時間</li>
+<li>WiFi測速並設定理論網速，這裡會影響以後<strong>unifi OS</strong>評估WiFi體驗的標準，建議是你辦的網路多少就設定多少不用管他測速的結果</li>
+<li>最後等大概十分鐘讓他設定就完成了</li>
+</ol>
+<p>用<strong>UniFi Network</strong> APP完成<strong>UDM</strong>的初始設定後，就可以用我們的電腦連線剛設定的WiFi，並在瀏覽器上輸入<code>192.168.1.1</code>進入<strong>unifi OS</strong>的網頁設定畫面，這裏<code>192.168.1.1</code>是<strong>unifi OS</strong>預設的網址，如果連不上(可能被佔用了)需要查看一下你目前電腦的LAN ip(區域網路IP)，查看方式依照不同OS不太一樣：</p>
+<ul>
+<li>Windows：打開<code>命令提示字元(cmd)</code>後輸入<code>ipconfig</code>，跳出一堆東西中<code>IPv4</code>位址那串就是你目前電腦的區網IP。</li>
+<li>Linux or Mac：打開<code>terminal</code>輸入<code>ifconfig</code>後找到你的網卡(通常是en0)下面那串裡的<code>inet</code>就是了。</li>
+</ul>
+<p>像我的區網IP是<code>192.168.10.x</code>，那就在瀏覽器輸入<code>192.168.10.1</code>就可以連上<strong>unifi OS</strong>了，如果跳出&quot;你的連線不是私人連線&quot;的警告不用管他，直接點<strong>進階</strong>繼續前往就可以，接著登入Unifi帳號就可以進入<strong>unifi OS</strong>網頁首頁。</p>
+<p>這邊要特別提一下，如果你是買<strong>UDM pro</strong>或<strong>USG</strong>等沒有內建WiFi分享的設備，就需要一開始就連接網路線到電腦上用網頁設定畫面做初始設定，但步驟跟APP都差不多基本上就一直下一步就可以。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/09/uios-home.png"  alt="unifi OS網頁首頁">
+  
+   
+    <span class="caption">unifi OS網頁首頁</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<p>點選中間的<strong>Network</strong>網路管理模組就可以進入我們網路設定的頁面，<strong>unifi OS</strong>網路模組左側有幾個比較常用的功能頁籤：</p>
+<ul>
+<li>Dashboard：可以快速的瀏覽目前整個網路系統的狀態，包含目前WiFi體驗評分、目前連線用戶數、整體網路狀態等一般資訊。</li>
+<li>Topology：拓墣圖可以看到目前網路連線架構，網路滿多人多會畫錯的但我目前是沒遇過，只是目前除了潮不知道能幹嘛。</li>
+<li>Devices：可以管理所有Unifi的設備，像是AP們、Switch們等等。</li>
+<li>Clients：可以看到瀏覽並管理有線或無連連上我們網路的設備們。</li>
+<li>Statistics：可以拉一些網路用量、連線內容類別等等的統計資料，讓我們了解自家網路使用狀況。</li>
+<li>Setting：可以新增管理網路、WiFi、設定防火牆還有管理介面設定等功能。</li>
+</ul>
+<h1 id="設定pppoe撥號">設定PPPoE撥號</h1>
+<p>一般居家如果是牽中華電信光世代的網路都是直接從他附的小烏龜利用PPPoE協定撥號讓我們可以連上網際網路，既然我們都換了整套網路設備，那就盡量把這些撥號、IP分配等等的雜事都交給<strong>UDM</strong>去做，讓小烏龜好好休息，設定<strong>UDM</strong> PPPoE的方法非常簡單，首先點選左下角<strong>Setting</strong>頁籤，再點上面的<strong>Internet</strong>選單，如果你只申請一個光世代畫面上只會有一個<strong>WAN</strong>也就是對外的網路，點擊那個<strong>WAN</strong>會進入到下圖的設定畫面，再點開裡面的<strong>Advanced</strong>設定選項。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/09/pppoe1.png"  alt="進入WAN的進階設定畫面">
+  
+   
+    <span class="caption">進入WAN的進階設定畫面</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<p>往下拉找到<strong>IPv4 Connection</strong>選單點開，會看到他要設定你的連線方式，如果是第一次設定應該會是在<code>DHCPv4</code>選項，就是小烏龜撥接然後分派LAN IP給你的連線的方式，我們要把它改成<code>PPPoE</code>選項，接著輸入中華電信給裝機時給你的撥號帳號密碼，通常帳號會是<code>xxxxxxxx@hinet.net</code>，密碼是隨機亂碼，如果有跟中華電信申請一組固定IP的用戶帳號要改成<code>xxxxxxxx@ip.hinet.net</code>，輸入好帳密按下右下角<strong>Apply Changes</strong>儲存變更後就會從<strong>UDM</strong>做撥接上網了。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/09/pppoe2.png"  alt="輸入CHT給的帳號密碼完成PPPoE撥接上網設定">
+  
+   
+    <span class="caption">輸入CHT給的帳號密碼完成PPPoE撥接上網設定</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<h1 id="設備接管與更新">設備接管與更新</h1>
+<p>點選<strong>unifi OS</strong>左側的<strong>Devices</strong>頁籤可以看到他在我們網路架構裡找到的設備，直接點選上面的<strong>Adopt</strong>接管設備，然後記得再點選<strong>Update</strong>把連線的設備軟體更新到最新的，接管順序應該是要Switch先再接管再換連接的AP，設備都接管並更新好以後大概會長得像下面的照片這樣。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/09/devices.png"  alt="設備接管後的頁面">
+  
+   
+    <span class="caption">設備接管後的頁面</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<p>設備頁面中有個<strong>IP ADDRESS</strong>會顯示我們設備目前的LAN IP，可以看到因為我的Router是<code>192.168.10.1</code>，所以目前接管進來的設備Router會用DHCP(就是幫妳分配LAN IP的協定)幫我們自動分配<code>192.168.10.x</code>的LAN IP給各個設備，這個DHCP自動分配的LAN IP是有可能會變動的，LAN IP就像以前班級內每個人的座號，如果會變動的話我們怎麼找到那個最吵鬧的學生，所以我會額外把設備的LAN IP都固定下來，先點選左下角的<strong>Setting</strong>進入設定畫面，再點選左方的<strong>Network</strong>選擇上面的<strong>LAN</strong>網路，再點選下面的<strong>Advance</strong>。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/09/lanset1.png"  alt="進入LAN網路管理畫面">
+  
+   
+    <span class="caption">進入LAN網路管理畫面</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<p>在<strong>Advance</strong>裡面找到<strong>Auto Scale Network</strong>把它關掉，下面會跳出一些設定，可以看到預設的<strong>DHCP Range</strong>是從<code>192.168.x.6</code>到<code>192.168.x.254</code>，代表DHCP會自動幫我們分配的LAN IP範圍，所以前面2~5(1被Router用掉了)是保留起來可以給我們指定的LAN IP，我的話是把他設定成30~254，前面保留28個LAN IP給我未來可能的Unifi設備。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/09/lanset2.png"  alt="更改LAN網路的DHCP Range">
+  
+   
+    <span class="caption">更改LAN網路的DHCP Range</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<p>改完<strong>DHCP Range</strong>後點選右下角的<strong>Apply Changes</strong>儲存變更，接著點選左邊<strong>Devices</strong>進入設備管理頁面，點選要設定的設備右邊會跳出資訊欄，點資訊欄上的<strong>Device</strong>並下拉開啟<strong>Network</strong>選單，在<strong>Configure IP</strong>的欄位選擇<strong>Static IP</strong>後會跳出四個需要填入的欄位，<strong>IP Address</strong>填入這個設備你想給他的IP，這個IP需要是前面設定<strong>DHCP Range</strong>所預留的那幾個IP，這樣就可以確保這個設備的LAN IP是我們所指定的不會再變動，<strong>Preferred DNS</strong>填入<code>1.1.1.1</code>、<strong>Subnet Mask</strong>填<code>255.255.255.0</code>、<strong>Alternate DNS</strong>填<code>8.8.8.8</code>、<strong>Gateway</strong>填上Router的LAN IP像我這邊就是<code>192.168.10.1</code>，最後一樣記得點<strong>Apply Changes</strong>儲存變更。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/09/device-ip1.png"  alt="指定設備的LAN IP為DHCP Range以外的保留IP">
+  
+   
+    <span class="caption">指定設備的LAN IP為DHCP Range以外的保留IP</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<p>我是把Switches的LAN IP指定在個位數的IP，AP們指定在十位數的IP，想說照種類把IP區隔開來，這樣以後比較好管理LAN網路裡面的設備。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/09/device-ip2.png"  alt="照設備類型指定LAN IP">
+  
+   
+    <span class="caption">照設備類型指定LAN IP</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<h1 id="table-of-contents">目錄</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#unifi初始化與介面介紹">Unifi初始化與介面介紹</a></li>
+    <li><a href="#設定pppoe撥號">設定PPPoE撥號</a></li>
+    <li><a href="#設備接管與更新">設備接管與更新</a></li>
+  </ul>
+</nav>
+              
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">標籤</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/unifi/">unifi</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/network/">network</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/wifi/">wifi</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://funskie.com/post/2021/09/77house%E5%B1%85%E5%AE%B6%E9%80%8F%E5%A4%A9%E7%B6%B2%E8%B7%AF%E6%9E%B6%E8%A8%AD%E5%88%86%E4%BA%AB-%E5%BC%B1%E9%9B%BB%E7%AE%B1%E7%A9%BA%E9%96%93%E8%A7%A3%E6%94%BE%E4%B9%8B%E8%A1%93/" data-tooltip="77house居家透天網路架設分享 弱電箱空間解放之術" aria-label="上一篇: 77house居家透天網路架設分享 弱電箱空間解放之術">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://funskie.com/post/2021/09/%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%ADunifi%E7%B6%B2%E8%B7%AF%E8%A8%AD%E5%AE%9A-%E5%88%9D%E5%A7%8B%E8%A8%AD%E5%AE%9A%E7%AF%87/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://funskie.com/post/2021/09/%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%ADunifi%E7%B6%B2%E8%B7%AF%E8%A8%AD%E5%AE%9A-%E5%88%9D%E5%A7%8B%E8%A8%AD%E5%AE%9A%E7%AF%87/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://funskie.com/post/2021/09/%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%ADunifi%E7%B6%B2%E8%B7%AF%E8%A8%AD%E5%AE%9A-%E5%88%9D%E5%A7%8B%E8%A8%AD%E5%AE%9A%E7%AF%87/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+  
+    
+      <div class="fb-comments" data-href="https://funskie.com/post/2021/09/%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%ADunifi%E7%B6%B2%E8%B7%AF%E8%A8%AD%E5%AE%9A-%E5%88%9D%E5%A7%8B%E8%A8%AD%E5%AE%9A%E7%AF%87/" data-width="" data-numposts="10" data-order-by=""></div>
+    
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Funskie. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://funskie.com/post/2021/09/77house%E5%B1%85%E5%AE%B6%E9%80%8F%E5%A4%A9%E7%B6%B2%E8%B7%AF%E6%9E%B6%E8%A8%AD%E5%88%86%E4%BA%AB-%E5%BC%B1%E9%9B%BB%E7%AE%B1%E7%A9%BA%E9%96%93%E8%A7%A3%E6%94%BE%E4%B9%8B%E8%A1%93/" data-tooltip="77house居家透天網路架設分享 弱電箱空間解放之術" aria-label="上一篇: 77house居家透天網路架設分享 弱電箱空間解放之術">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://funskie.com/post/2021/09/%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%ADunifi%E7%B6%B2%E8%B7%AF%E8%A8%AD%E5%AE%9A-%E5%88%9D%E5%A7%8B%E8%A8%AD%E5%AE%9A%E7%AF%87/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://funskie.com/post/2021/09/%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%ADunifi%E7%B6%B2%E8%B7%AF%E8%A8%AD%E5%AE%9A-%E5%88%9D%E5%A7%8B%E8%A8%AD%E5%AE%9A%E7%AF%87/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://funskie.com/post/2021/09/%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%ADunifi%E7%B6%B2%E8%B7%AF%E8%A8%AD%E5%AE%9A-%E5%88%9D%E5%A7%8B%E8%A8%AD%E5%AE%9A%E7%AF%87/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffunskie.com%2Fpost%2F2021%2F09%2F%25E6%2599%25BA%25E6%2585%25A7%25E5%25AE%25B6%25E5%25BA%25ADunifi%25E7%25B6%25B2%25E8%25B7%25AF%25E8%25A8%25AD%25E5%25AE%259A-%25E5%2588%259D%25E5%25A7%258B%25E8%25A8%25AD%25E5%25AE%259A%25E7%25AF%2587%2F" aria-label="分享到 %s Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ffunskie.com%2Fpost%2F2021%2F09%2F%25E6%2599%25BA%25E6%2585%25A7%25E5%25AE%25B6%25E5%25BA%25ADunifi%25E7%25B6%25B2%25E8%25B7%25AF%25E8%25A8%25AD%25E5%25AE%259A-%25E5%2588%259D%25E5%25A7%258B%25E8%25A8%25AD%25E5%25AE%259A%25E7%25AF%2587%2F" aria-label="分享到 %s Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ffunskie.com%2Fpost%2F2021%2F09%2F%25E6%2599%25BA%25E6%2585%25A7%25E5%25AE%25B6%25E5%25BA%25ADunifi%25E7%25B6%25B2%25E8%25B7%25AF%25E8%25A8%25AD%25E5%25AE%259A-%25E5%2588%259D%25E5%25A7%258B%25E8%25A8%25AD%25E5%25AE%259A%25E7%25AF%2587%2F" aria-label="分享到 %s Google&#43;">
+          <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/" alt="作者的圖片" />
+    
+    <h4 id="about-card-name">Funskie</h4>
+    
+      <div id="about-card-bio">科技宅菜鳥現場工程師筆記</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        現場工程師
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://funskie.com/js/script-8lglxdix2nqhalxxm2bujhkcc8cctdrd5o5axonwhfzx2zqrer5facyn8.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+
