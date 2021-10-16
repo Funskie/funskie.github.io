@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security on Funskie</title>
+    <link>https://funskie.com/tags/security/</link>
+    <description>Recent content in security on Funskie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Fri, 15 Oct 2021 17:52:59 +0800</lastBuildDate><atom:link href="https://funskie.com/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>針對智慧家庭的Vlan規劃</title>
+      <link>https://funskie.com/post/2021/10/%E9%87%9D%E5%B0%8D%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E7%9A%84vlan%E8%A6%8F%E5%8A%83/</link>
+      <pubDate>Fri, 15 Oct 2021 17:52:59 +0800</pubDate>
+      
+      <guid>https://funskie.com/post/2021/10/%E9%87%9D%E5%B0%8D%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E7%9A%84vlan%E8%A6%8F%E5%8A%83/</guid>
+      <description>&lt;p&gt;這篇主要是介紹一下以&lt;em&gt;相對比較安全&lt;/em&gt;的智慧家庭前提下所規劃的網路架構，也是目前&lt;strong&gt;77 house&lt;/strong&gt;所採用的網路架構，後續會再以&lt;strong&gt;Unifi OS&lt;/strong&gt;的網路設定模組做實作的分享。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

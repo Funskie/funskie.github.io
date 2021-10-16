@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Funskie</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Thu, 07 Oct 2021 15:45:51 +0800</lastBuildDate><atom:link href="https://funskie.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Oct 2021 17:52:59 +0800</lastBuildDate><atom:link href="https://funskie.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>network</title>
+      <link>https://funskie.com/tags/network/</link>
+      <pubDate>Fri, 15 Oct 2021 17:52:59 +0800</pubDate>
+      
+      <guid>https://funskie.com/tags/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://funskie.com/tags/security/</link>
+      <pubDate>Fri, 15 Oct 2021 17:52:59 +0800</pubDate>
+      
+      <guid>https://funskie.com/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vlan</title>
+      <link>https://funskie.com/tags/vlan/</link>
+      <pubDate>Fri, 15 Oct 2021 17:52:59 +0800</pubDate>
+      
+      <guid>https://funskie.com/tags/vlan/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>guest</title>
       <link>https://funskie.com/tags/guest/</link>
@@ -31,15 +58,6 @@
       <pubDate>Thu, 07 Oct 2021 15:45:51 +0800</pubDate>
       
       <guid>https://funskie.com/tags/wifi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>network</title>
-      <link>https://funskie.com/tags/network/</link>
-      <pubDate>Thu, 30 Sep 2021 00:57:45 +0800</pubDate>
-      
-      <guid>https://funskie.com/tags/network/</guid>
       <description></description>
     </item>
     
