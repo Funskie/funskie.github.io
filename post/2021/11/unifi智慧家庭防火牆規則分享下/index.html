@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/funskie.com\/",
+  "author": {
+    "@type": "Person",
+    "name": "Funskie",
+    
+    "image": "https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/"
+    
+  },
+  "name":"Funskie",
+  "description":"\u003cp\u003e在\u003ca href=\u0022https:\/\/funskie.com\/post\/2021\/11\/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8A\/\u0022 target=\u0022_blank\u0022\u003e\u0022上篇\u0022\u003c\/a\u003e中我們完成了阻擋\u003cstrong\u003eIOT Vlan\u003c\/strong\u003e連線\u003cstrong\u003eLAN Vlan\u003c\/strong\u003e與\u003cem\u003e神秘通道\u003c\/em\u003e的防火牆規則，但其實還是有漏洞可以讓\u003cstrong\u003eIOT Vlan\u003c\/strong\u003e內的設備駭進整體架構，下面讓我們來測試看看。\u003c\/p\u003e",
+  "url":"https:\/\/funskie.com\/post\/2021\/11\/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8B\/",
+  "keywords":"[tech]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.5.1-BETA">
+<meta name="author" content="Funskie">
+<meta name="keywords" content="tech">
+<meta name="description" content="在&#34;上篇&#34;中我們完成了阻擋IOT Vlan連線LAN Vlan與神秘通道的防火牆規則，但其實還是有漏洞可以讓IOT Vlan內的設備駭進整體架構，下面讓我們來測試看看。">
+
+
+<meta property="og:description" content="在&#34;上篇&#34;中我們完成了阻擋IOT Vlan連線LAN Vlan與神秘通道的防火牆規則，但其實還是有漏洞可以讓IOT Vlan內的設備駭進整體架構，下面讓我們來測試看看。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unifi智慧家庭防火牆規則分享(下)">
+<meta name="twitter:title" content="Unifi智慧家庭防火牆規則分享(下)">
+<meta property="og:url" content="https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8B/">
+<meta property="twitter:url" content="https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8B/">
+<meta property="og:site_name" content="Funskie">
+<meta property="og:description" content="在&#34;上篇&#34;中我們完成了阻擋IOT Vlan連線LAN Vlan與神秘通道的防火牆規則，但其實還是有漏洞可以讓IOT Vlan內的設備駭進整體架構，下面讓我們來測試看看。">
+<meta name="twitter:description" content="在&#34;上篇&#34;中我們完成了阻擋IOT Vlan連線LAN Vlan與神秘通道的防火牆規則，但其實還是有漏洞可以讓IOT Vlan內的設備駭進整體架構，下面讓我們來測試看看。">
+<meta property="og:locale" content="zh-tw">
+
+  
+    <meta property="article:published_time" content="2021-11-17T09:06:19">
+  
+  
+    <meta property="article:modified_time" content="2021-11-17T09:06:19">
+  
+  
+  
+    
+      <meta property="article:section" content="77house">
+    
+      <meta property="article:section" content="Unifi Home Setup">
+    
+  
+  
+    
+      <meta property="article:tag" content="iot">
+    
+      <meta property="article:tag" content="firewall">
+    
+      <meta property="article:tag" content="unifi">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/">
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/ci-1117.jpg">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/ci-1117.jpg">
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/ci-1117.jpg">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/ci-1117.jpg">
+
+
+<meta property="fb:app_id" content="&#123;877860206185200&#125;" />
+    <title>Unifi智慧家庭防火牆規則分享(下)</title>
+
+    <link rel="icon" href="https://funskie.com/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8B/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://funskie.com/css/style-2w2urpokyukbsouppglitcyxngrsa0pcm58rrm5mqo3ieqo6bkvr3cz9nvf.min.css" />
+    
+    
+    
+      
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MSSERYEY8E"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-MSSERYEY8E', { 'anonymize_ip': false });
+}
+</script>
+
+      
+    
+    
+
+    <script data-ad-client="ca-pub-2250984481230521" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v11.0&appId=877860206185200&autoLogAppEvents=1" nonce="MsVHMdid"></script>
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://funskie.com/" aria-label="去首頁">Funskie</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://funskie.com/#about" aria-label="打開鏈接: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/" alt="作者的圖片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://funskie.com/#about" aria-label="閱讀有關作者的更多信息">
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/" alt="作者的圖片" />
+        </a>
+        <h4 class="sidebar-profile-name">Funskie</h4>
+        
+          <h5 class="sidebar-profile-bio">科技宅菜鳥現場工程師筆記</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">首頁</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">分類</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">標籤</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">所有文章</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-address-card" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">關於</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Funskie" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.facebook.com/funs.key.5" target="_blank" rel="noopener" title="Facebook">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-facebook" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Facebook</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tzu-chi-fang-611895a3/" target="_blank" rel="noopener" title="Linkedin">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/ci-1117.jpg')"
+       data-behavior="5">
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
+               ">
+        <article class="post">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      Unifi智慧家庭防火牆規則分享(下)
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2021-11-17T09:06:19&#43;08:00">
+        
+  十一月 17, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>分類</span>
+    
+      <a class="category-link" href="https://funskie.com/categories/77house">77house</a>, 
+    
+      <a class="category-link" href="https://funskie.com/categories/unifi-home-setup">Unifi Home Setup</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>在<a href="https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8A/" target="_blank">"上篇"</a>中我們完成了阻擋<strong>IOT Vlan</strong>連線<strong>LAN Vlan</strong>與<em>神秘通道</em>的防火牆規則，但其實還是有漏洞可以讓<strong>IOT Vlan</strong>內的設備駭進整體架構，下面讓我們來測試看看。</p>
+<h1 id="試試看連進lan-vlan的router-ip">試試看連進LAN Vlan的Router IP</h1>
+<p>在上篇中我們已經測試過在<strong>IOT Vlan</strong>的裝置去<code>Ping</code> <strong>LAN Vlan</strong>內的裝置時會出現<em>連線逾時</em>，看起來是很成功的隔開了<strong>IOT Vlan</strong>，但這些防火牆規則都是在<code>LAN IN</code>的狀況下成立，也就是說如果我們是直接連進Router他會變成是<code>LAN LOCAL</code>那麼上述的規則就都無效了，我們試著把筆電連上<strong>IOT Vlan</strong>的WiFi並且去<code>Ping</code> <code>192.168.10.1</code>，會發現雖然是連往<strong>LAN Vlan</strong>，但因為是連到Router所以非<code>LAN IN</code>類別的防火牆規則所以我們是<code>Ping</code>得到的。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/iot-ping-r1.png"  alt="從IOT Vlan網路連線到LAN Vlan的Router中">
+  
+   
+    <span class="caption">從IOT Vlan網路連線到LAN Vlan的Router中</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<p>照上圖的結果顯示只要<strong>IOT Vlan</strong>的裝置有辦法連線到Router，那他只要能從Router進入我們的<strong>Unifi OS</strong>更改網路設定就可以直接進入<strong>LAN Vlan</strong>了，所以我們一定要想辦法解決這個問題。<br>
+首先我們一樣點選左下角<strong>Settings</strong>並選擇<strong>Routing &amp; Firewall</strong>設定頁面，點選上方的<strong>FIREWALL</strong>內的<strong>LAN LOCAL</strong>分類，並按下<strong>CREATE NEW RULE</strong>進行<code>LAN LOCAL</code>的防火牆規則新增頁面。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/add-fw.png"  alt="前往新增LAN LOCAL類別的防火牆規則">
+  
+   
+    <span class="caption">前往新增LAN LOCAL類別的防火牆規則</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<p>我們首先要建立一個<strong>防止IOT Vlan裝置連上其他Vlan Router</strong>的防火牆規則，在<code>LAN LOCAL</code>建立名為<strong>Block IOT to GWs</strong>的規則，<strong>Action</strong>的部分選擇<strong>Drop</strong>，下面<strong>SOURCE</strong>的地方選擇<strong>Network</strong>的類別然後選<strong>VLAN20_IOT</strong>這個Vlan網路。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/local-fw1.png"  alt="Block IOT to GWs防火牆規則設定">
+  
+   
+    <span class="caption">Block IOT to GWs防火牆規則設定</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+<br>
+至於<strong>DESTINATION</strong>的部分就比較複雜了，我們目前要阻擋的是<strong>IOT Vlan 前往其他Vlan網路Router的IP</strong>，所以我們要建立一個專屬的IP Groups，這邊順便介紹另一種建立Groups的方法，除了之前介紹的在Groups頁面創建以外，也可以直接在防火牆規則建立設定中，從<strong>SOURCE</strong>或<strong>DESTINATION</strong>選擇<strong>Address/Port Group</strong>類別，點選下面出現藍色的<strong>CREATE IPV4 ADDRESS GROUP</strong>會跳出建立Group的彈出視窗，我們在彈出視窗創建一樣叫<strong>Block IOT to GWs</strong>的IP群組，裡面依序新增<strong>除了IOT Vlan自己本身的Router IP外的其他Vlan網路的Router IP</strong>，像下圖一樣我們<strong>IOT Vlan</strong>是在<code>192.168.20.x</code>的網段，所以我們就新增一個除了20其他都包含的Group。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/local-fw2.png" >
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/local-fw3.png"  alt="直接在DESTINATION設定處建立新的Groups">
+  
+   
+    <span class="caption">直接在DESTINATION設定處建立新的Groups</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+<br>
+以上都設定完後就可以按下<strong>SAVE</strong>儲存設定，再讓我們試看看從<strong>IOT Vlan</strong> Ping不Ping的到<code>192.168.10.1</code>，從下圖可以看出<strong>Block IOT to GWs</strong>成功阻擋了我們的連線！
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/iot-ping-r2.png"  alt="從IOT Vlan網路連線到LAN Vlan的Router中">
+  
+   
+    <span class="caption">從IOT Vlan網路連線到LAN Vlan的Router中</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<h1 id="再試試看連進自己的router-ip">再試試看連進自己的Router IP</h1>
+<p>上面我們成功阻擋了<strong>IOT Vlan</strong>連進別網段的Router IP，但我們還沒有試過連上自己網段的Router IP會發生什麼事，像下圖中我們開啟瀏覽器在網址處輸入<code>192.168.20.1</code>連上Router IP，會連上<strong>Unifi OS</strong>的登入頁面，等於只要有辦法登入<strong>Unifi OS</strong>那麼<strong>IOT Vlan</strong>的任何裝置都能從自己的網段去更改我們的網路設定，那麼只要有心人士進去把防火牆規則全關掉，我們之前做的東西就全部白費了，但這邊有個問題是我們沒辦法像前面這樣直接建防火牆規則阻擋<strong>IOT Vlan</strong>裝置連上<code>192.168.20.1</code>，若是這樣<strong>IOT Vlan</strong>的裝置會直接沒辦法做所有連線。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/iot-r1.png"  alt="於IOT Vlan瀏覽器連上Router IP進入Unifi OS畫面">
+  
+   
+    <span class="caption">於IOT Vlan瀏覽器連上Router IP進入Unifi OS畫面</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<p>因為我們沒辦法直接阻擋一個裝置連線到他自己網路的Router IP，所以我們只能想一些比較<strong>搞剛</strong>的方法來保護我們的網路，這邊我們會把一些常用的<code>Port</code>組一個群組，讓<strong>IOT Vlan</strong>裡的裝置沒辦法連上這些<code>Port</code>，至少可以讓它沒辦法從Router IP連上<strong>Unifi OS</strong>，首先我們跟上面一樣建立一個<code>LAN LOCAL</code>的防火牆規則，名稱就取做<strong>Block IOT self GW ports</strong>，<strong>Action</strong>跟<strong>SOURCE</strong>都跟前面一樣選擇<strong>Drop</strong>與<strong>VLAN20_IOT</strong>。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/self-fw1.png"  alt="Block IOT self GW ports防火牆規則設定">
+  
+   
+    <span class="caption">Block IOT self GW ports防火牆規則設定</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+<br>
+<strong>DESTINATION</strong>的地方我們也跟前面一樣直接點選<strong>CREATE IPV4 ADDRESS GROUP</strong>創建一個名叫<strong>GWs ip</strong>包含所有Router IP的Group，像我這邊就是<strong>LAN Vlan</strong>的<code>192.168.10.1</code>、<strong>IOT Vlan</strong>的<code>192.168.20.1</code>與<strong>Guest Vlan</strong>的<code>192.168.40.1</code>，建完<strong>GWs ip</strong>後再下面有一個<strong>CREATE PORT GROUP</strong>的藍色按鈕，點下去一樣會有彈出視窗，這邊我們要建立前面提到的常用連線的<code>Port</code>的群組，我們把它取名<strong>UDM access ports</strong>，下面填入<code>80</code>、<code>443</code>、<code>22</code>等<code>Port</code>，這三個<code>Port</code>是連線進入<strong>Unifi OS</strong>會用到的<code>Port</code>，設定好<strong>DESTINATION</strong>後按下儲存就完成這個規則的建立啦！<br>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/self-fw2.png" >
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/self-fw3.png"  alt="建立UDM access ports群組做為防火牆規則的DESTINATION">
+  
+   
+    <span class="caption">建立UDM access ports群組做為防火牆規則的DESTINATION</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<p>如果我們試著從<strong>IOT Vlan</strong>去<code>Ping</code>自己的Router IP會發現還是可以<code>Ping</code>的到，但是當我們一樣在瀏覽器輸入<code>192.168.20.1</code>網址時會發現它沒辦法連上<strong>Unifi OS</strong>的登入頁面了，代表我們剛剛的防火牆規則建立成功。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/iot-ping-self.png"  alt="從IOT Vlan ping 自己的 Router IP">
+  
+   
+    <span class="caption">從IOT Vlan ping 自己的 Router IP</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/11/iot-r2.png"  alt="無法連上 192.168.20.1">
+  
+   
+    <span class="caption">無法連上 192.168.20.1</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<h1 id="安全是比較來的">安全是比較來的</h1>
+<p>終於把基於智慧家庭的<strong>Unifi</strong>設定都簡單分享完畢，大多設定主要是參考國外一些Unifi設定的教學影片與文章，並基於自己的使用情境去稍作修改，雖然提到的很多東西在專業的<strong>MIS</strong>人員看來應該是很基本但也是把我搞得一個頭兩個大了&hellip;經過這些設定至少是可以確定我們的居家網路會比一般家庭的網路<strong>相對</strong>安全，當然我相信真的厲害的有心人士只要多花一點心思還是可以駭進我們的網路，但通常除非你是什麼政要或是全球首富不然應該是不會有人這麼閒特別花時間來搞我們，未來就會開始介紹關於智慧家庭的東西，希望能幫助到大家。</p>
+<h1 id="table-of-contents">目錄</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#試試看連進lan-vlan的router-ip">試試看連進LAN Vlan的Router IP</a></li>
+    <li><a href="#再試試看連進自己的router-ip">再試試看連進自己的Router IP</a></li>
+    <li><a href="#安全是比較來的">安全是比較來的</a></li>
+  </ul>
+</nav>
+              
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">標籤</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/iot/">iot</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/firewall/">firewall</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/unifi/">unifi</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8A/" data-tooltip="Unifi智慧家庭防火牆規則分享(上)" aria-label="上一篇: Unifi智慧家庭防火牆規則分享(上)">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8B/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8B/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8B/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+  
+    
+      <div class="fb-comments" data-href="https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8B/" data-width="" data-numposts="10" data-order-by=""></div>
+    
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Funskie. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8A/" data-tooltip="Unifi智慧家庭防火牆規則分享(上)" aria-label="上一篇: Unifi智慧家庭防火牆規則分享(上)">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8B/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8B/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8B/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffunskie.com%2Fpost%2F2021%2F11%2Funifi%25E6%2599%25BA%25E6%2585%25A7%25E5%25AE%25B6%25E5%25BA%25AD%25E9%2598%25B2%25E7%2581%25AB%25E7%2589%2586%25E8%25A6%258F%25E5%2589%2587%25E5%2588%2586%25E4%25BA%25AB%25E4%25B8%258B%2F" aria-label="分享到 %s Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ffunskie.com%2Fpost%2F2021%2F11%2Funifi%25E6%2599%25BA%25E6%2585%25A7%25E5%25AE%25B6%25E5%25BA%25AD%25E9%2598%25B2%25E7%2581%25AB%25E7%2589%2586%25E8%25A6%258F%25E5%2589%2587%25E5%2588%2586%25E4%25BA%25AB%25E4%25B8%258B%2F" aria-label="分享到 %s Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ffunskie.com%2Fpost%2F2021%2F11%2Funifi%25E6%2599%25BA%25E6%2585%25A7%25E5%25AE%25B6%25E5%25BA%25AD%25E9%2598%25B2%25E7%2581%25AB%25E7%2589%2586%25E8%25A6%258F%25E5%2589%2587%25E5%2588%2586%25E4%25BA%25AB%25E4%25B8%258B%2F" aria-label="分享到 %s Google&#43;">
+          <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/" alt="作者的圖片" />
+    
+    <h4 id="about-card-name">Funskie</h4>
+    
+      <div id="about-card-bio">科技宅菜鳥現場工程師筆記</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        現場工程師
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://funskie.com/js/script-8lglxdix2nqhalxxm2bujhkcc8cctdrd5o5axonwhfzx2zqrer5facyn8.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+
