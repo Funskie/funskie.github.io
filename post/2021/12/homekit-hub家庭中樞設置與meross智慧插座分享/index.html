@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/funskie.com\/",
+  "author": {
+    "@type": "Person",
+    "name": "Funskie",
+    
+    "image": "https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/"
+    
+  },
+  "name":"Funskie",
+  "description":"\u003cp\u003e今天來介紹一下怎麼設定家庭中樞(Homkit Hub)，並且來分享一下支援Homkit的智慧插座設定與一些增加生活情調的實用功能(不是色色請柴犬冷靜)。\u003c\/p\u003e",
+  "url":"https:\/\/funskie.com\/post\/2021\/12\/homekit-hub%E5%AE%B6%E5%BA%AD%E4%B8%AD%E6%A8%9E%E8%A8%AD%E7%BD%AE%E8%88%87meross%E6%99%BA%E6%85%A7%E6%8F%92%E5%BA%A7%E5%88%86%E4%BA%AB\/",
+  "keywords":"[tech]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.5.1-BETA">
+<meta name="author" content="Funskie">
+<meta name="keywords" content="tech">
+<meta name="description" content="今天來介紹一下怎麼設定家庭中樞(Homkit Hub)，並且來分享一下支援Homkit的智慧插座設定與一些增加生活情調的實用功能(不是色色請柴犬冷靜)。">
+
+
+<meta property="og:description" content="今天來介紹一下怎麼設定家庭中樞(Homkit Hub)，並且來分享一下支援Homkit的智慧插座設定與一些增加生活情調的實用功能(不是色色請柴犬冷靜)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Homekit Hub家庭中樞設置與Meross智慧插座分享">
+<meta name="twitter:title" content="Homekit Hub家庭中樞設置與Meross智慧插座分享">
+<meta property="og:url" content="https://funskie.com/post/2021/12/homekit-hub%E5%AE%B6%E5%BA%AD%E4%B8%AD%E6%A8%9E%E8%A8%AD%E7%BD%AE%E8%88%87meross%E6%99%BA%E6%85%A7%E6%8F%92%E5%BA%A7%E5%88%86%E4%BA%AB/">
+<meta property="twitter:url" content="https://funskie.com/post/2021/12/homekit-hub%E5%AE%B6%E5%BA%AD%E4%B8%AD%E6%A8%9E%E8%A8%AD%E7%BD%AE%E8%88%87meross%E6%99%BA%E6%85%A7%E6%8F%92%E5%BA%A7%E5%88%86%E4%BA%AB/">
+<meta property="og:site_name" content="Funskie">
+<meta property="og:description" content="今天來介紹一下怎麼設定家庭中樞(Homkit Hub)，並且來分享一下支援Homkit的智慧插座設定與一些增加生活情調的實用功能(不是色色請柴犬冷靜)。">
+<meta name="twitter:description" content="今天來介紹一下怎麼設定家庭中樞(Homkit Hub)，並且來分享一下支援Homkit的智慧插座設定與一些增加生活情調的實用功能(不是色色請柴犬冷靜)。">
+<meta property="og:locale" content="zh-tw">
+
+  
+    <meta property="article:published_time" content="2021-12-02T17:52:32">
+  
+  
+    <meta property="article:modified_time" content="2021-12-02T17:52:32">
+  
+  
+  
+    
+      <meta property="article:section" content="77house">
+    
+      <meta property="article:section" content="homekit">
+    
+  
+  
+    
+      <meta property="article:tag" content="homekit">
+    
+      <meta property="article:tag" content="meross">
+    
+      <meta property="article:tag" content="家庭中樞">
+    
+      <meta property="article:tag" content="smart plug">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/">
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/ci-1202.jpg">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/ci-1202.jpg">
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/ci-1202.jpg">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/ci-1202.jpg">
+
+
+<meta property="fb:app_id" content="&#123;877860206185200&#125;" />
+    <title>Homekit Hub家庭中樞設置與Meross智慧插座分享</title>
+
+    <link rel="icon" href="https://funskie.com/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://funskie.com/post/2021/12/homekit-hub%E5%AE%B6%E5%BA%AD%E4%B8%AD%E6%A8%9E%E8%A8%AD%E7%BD%AE%E8%88%87meross%E6%99%BA%E6%85%A7%E6%8F%92%E5%BA%A7%E5%88%86%E4%BA%AB/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://funskie.com/css/style-2w2urpokyukbsouppglitcyxngrsa0pcm58rrm5mqo3ieqo6bkvr3cz9nvf.min.css" />
+    
+    
+    
+      
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MSSERYEY8E"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-MSSERYEY8E', { 'anonymize_ip': false });
+}
+</script>
+
+      
+    
+    
+
+    <script data-ad-client="ca-pub-2250984481230521" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v11.0&appId=877860206185200&autoLogAppEvents=1" nonce="MsVHMdid"></script>
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://funskie.com/" aria-label="去首頁">Funskie</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://funskie.com/#about" aria-label="打開鏈接: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/" alt="作者的圖片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://funskie.com/#about" aria-label="閱讀有關作者的更多信息">
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/" alt="作者的圖片" />
+        </a>
+        <h4 class="sidebar-profile-name">Funskie</h4>
+        
+          <h5 class="sidebar-profile-bio">科技宅菜鳥現場工程師筆記</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">首頁</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">分類</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">標籤</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">所有文章</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-address-card" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">關於</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Funskie" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.facebook.com/funs.key.5" target="_blank" rel="noopener" title="Facebook">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-facebook" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Facebook</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tzu-chi-fang-611895a3/" target="_blank" rel="noopener" title="Linkedin">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/ci-1202.jpg')"
+       data-behavior="5">
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
+               ">
+        <article class="post">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      Homekit Hub家庭中樞設置與Meross智慧插座分享
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2021-12-02T17:52:32&#43;08:00">
+        
+  十二月 2, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>分類</span>
+    
+      <a class="category-link" href="https://funskie.com/categories/77house">77house</a>, 
+    
+      <a class="category-link" href="https://funskie.com/categories/homekit">homekit</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>今天來介紹一下怎麼設定家庭中樞(Homkit Hub)，並且來分享一下支援Homkit的智慧插座設定與一些增加生活情調的實用功能(不是色色請柴犬冷靜)。</p>
+<h1 id="homkit-hub家庭中樞要拿來幹嘛">Homkit Hub家庭中樞要拿來幹嘛？</h1>
+<p><a href="https://funskie.com/post/2021/09/77house%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD-%E5%B9%B3%E5%8F%B0%E7%AF%87/" target="_blank">之前</a>有提過Homkit平台內的裝置都是以<strong>區域網路</strong>通訊，所以就算外網<em>Internet</em>掛了我們的那些智慧裝置也都可以正常在家中運作，但如果我們想要在公司或是戶外開一下家裡電視(是想幹嘛&hellip;)，那麼就需要能從外網<em>Internet</em>送指令去給家中的Homekit設備，這時候就需要<strong>Homkit Hub家庭中樞</strong>來處理這件事情，家庭中樞就像Homekit平台內的指揮塔台，接收<strong>iCloud</strong>認證過的外網裝置傳送進來的指令並且分派工作給同在<strong>區域網路</strong>內的智慧裝置，這種方式的好處是不會每個裝置都需要連外網來接收指令，可以最小化外部網路跟家中網路通訊的管道，目前Apple支援Ipad、Apple TV、HomePod、
+HomePod Mini作為<strong>Homkit Hub家庭中樞</strong>，如果家中有兩三台以上可以當中樞的裝置，Apple會讓其中一台當作主要的中樞，
+其他裝置則作為備援的中樞，如果主要中樞熊熊出問題，那麽備援中樞就會出來當備胎&hellip;</p>
+<h1 id="將家中閒置ipad設為家庭中樞">將家中閒置Ipad設為家庭中樞</h1>
+<p>目前網路鄉民們最推薦的<strong>家庭中樞</strong>設備其實是可以有線連接的<strong>Apple TV</strong>，畢竟有線網路的穩定度還是大勝WiFi網路連線，但當初基於成本考量我還是決定拿閒置的舊IPad先充當新家的<strong>家庭中樞</strong>，如果真的很不穩再考慮看看<strong>Apple TV</strong>或其他方案，首先我們要先確定要當中樞的IPad跟我們使用的IPhone是登入同一組<strong>iCloud</strong>帳號，接著我們只要在<strong>設定</strong>中的<strong>家庭</strong>選項內把<strong>將此 iPad 做為『家庭中樞』<strong>的選項開啟，然後把我們的IPad連上主要的</strong>LAN</strong>區域網路就完成IPad的設定啦！
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://funskie.com/images/2021/12/ipad-hub.jpeg"  alt="在IPad設定中開啟做為『家庭中樞』選項">
+  
+   
+    <span class="caption">在IPad設定中開啟做為『家庭中樞』選項</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+<br>
+雖然我們已經完成了IPad端的設定，但我們可能會發現連上<strong>IOT Vlan</strong>的智慧裝置們在家庭裡面都無法正常使用，那是因為這些在<strong>IOT Vlan</strong>的裝置被防火牆擋住沒辦法連上<strong>LAN Vlan</strong>內的IPad<strong>家庭中樞</strong>，所以我們要在<strong>Unifi OS</strong>防火牆設定中把IPad的IP加進我們在<a href="https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8A/#%E5%BB%BA%E7%AB%8B%E5%82%B3%E8%AA%AA%E4%B8%AD%E7%9A%84%E7%A5%9E%E7%A7%98%E9%80%9A%E9%81%93" target="_blank">這篇</a>的<strong>HA Server</strong>群組裡面，就可以把這台IPad變成我們的<strong>神秘通道</strong>，讓<strong>IOT Vlan</strong>的智慧裝置可以跟他通訊。</p>
+<p>其實後來我也獲得了一台<strong>HomePod mini</strong>(感謝表哥的入厝禮)，發現<strong>HomePod mini</strong>只要接管完成就直接變成<strong>家庭中樞</strong>了完全不用設定，當然還是要把它加進<strong>HA Server</strong>群組變成<strong>神秘通道</strong>才可以連的到，但設定上已經比IPad簡單多了，下圖的畫面可以看到目前我的家庭有兩個可以作為<strong>家庭中樞</strong>的設備，而現在是以<strong>HomePod mini</strong>作為<strong>家庭中樞</strong>，IPad則是備援的中樞。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/hubs.png"  alt="77 House家庭中樞列表">
+  
+   
+    <span class="caption">77 House家庭中樞列表</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<h1 id="把meross智慧插座加進homekit裡面">把Meross智慧插座加進Homekit裡面</h1>
+<p>介紹完<strong>Homkit Hub家庭中樞</strong>後順便來分享一組智慧插座當作Homekit裝置接管到設置的流程的介紹，這組<a href="https://www.amazon.com/gp/product/B084JML1WN/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&amp;psc=1" target="_blank">Meross Smart Plug Mini</a>是當初在亞馬遜跟其他商品一起湊單買的，記得當初大約20美金共有兩個支援Homekit的智慧插座，等於一個不用300台幣跟台灣這邊的Homekit智慧插座比是划算滿多的。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/plug1.JPG"  alt="Meross Smart Plug Mini外包裝">
+  
+   
+    <span class="caption">Meross Smart Plug Mini外包裝</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/plug.JPG"  alt="迷你的尺寸實際使用上不會卡到另一個插座">
+  
+   
+    <span class="caption">迷你的尺寸實際使用上不會卡到另一個插座</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+通常這種配件都會附有Homekit的<strong>QR code</strong>，想要把它加進我們的智慧家庭裡面要先把它插在想控制的插座上，會發現它上面的燈號在閃爍表示準備好被接管了，我們只需要將手機先連上<strong>IOT Vlan</strong>的WiFi，然後點選手機上的<strong>家庭</strong>APP，點下左上角的 <strong>+</strong> 鍵選擇加入配件，然後掃描智慧插座上的<strong>QR code</strong>讓<strong>家庭</strong>APP去辨識裝置，然後再幫這個裝置取個好記的名稱跟選擇他是在哪個區域後，就可以順利把裝置加進我們的Homekit<strong>家庭</strong>APP裡了。<br>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/plug2.jpg"  alt="連上IOT Vlan對應樓層的WiFi">
+  
+   
+    <span class="caption">連上IOT Vlan對應樓層的WiFi</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/plug3.jpg"  alt="在家庭APP裡選擇加入配件">
+  
+   
+    <span class="caption">在家庭APP裡選擇加入配件</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/plug4.jpg"  alt="掃描裝置上的QR Code">
+  
+   
+    <span class="caption">掃描裝置上的QR Code</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/plug6.jpg"  alt="選擇配件所在的區域">
+  
+   
+    <span class="caption">選擇配件所在的區域</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<h1 id="智慧插座使用情境分享">智慧插座使用情境分享</h1>
+<p>接下來簡單介紹一下我其中一個智慧插座的使用情境，利用Homekit的自動化建立一些日常開關排程，達到兼顧懶惰與節電的功能。首先我們長按<strong>家庭</strong>APP裡的設備會跳出這個設備的設定畫面，往下滑可以看到一些設定選項，包含可以改設備的名稱、顯示什麼類別的設備或在哪個區域等等，這邊順便提一下不要覺得名稱隨便取沒差，你Call Siri去聲控設備的時候如果名稱都取的很相似會造成Siri誤會控制到別的設備，在設備的設定選單中還可以看到<strong>自動化</strong>這個選項，這個選項必須有<strong>Homkit Hub家庭中樞</strong>才能啟用，主要功能是建立一些簡單的條件觸發事項，白話點就是：當溫度超過28度時開啟冷氣、或是濕度到70％以上時開啟除濕機等等，當然要能觸發這些條件的前提是我們的家庭裡有裝設溫度或濕度的Sensor才行。<br>
+因為我們社區晚上的照明偏暗，而可愛的老婆常常需要晚上在陽台照顧她的各種草類，所以我們買了一串露營用的防水戶外LED燈串，這組燈串是沒有開關的，只要接上110V的插座就會亮，變成天比較暗的時候就要去陽台把它插上電源，不使用的時候還要拔起來實在有點麻煩，這邊剛好利用這次買的智慧插座來建立一些自動化的機制讓我可以活得更廢一點，首先我們在<strong>自動化</strong>的選項點選<strong>加入自動化操作</strong>，我們會跳到條件設定的畫面，我希望他每天在太陽下山的時候自動亮花園燈，所以條件就選擇<strong>某個特定時間</strong>，發現裡面就有<strong>日落</strong>這個選項可以選非常方便，條件選好後下面要設定條件觸發時我們的裝置要做什麼事情，這裡就選擇<strong>開啟</strong>，完成後我們的花園燈就會在每天日落時自動開啟啦！
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/auto1.png"  alt="在配件的設定選單中點選加入自動化操作">
+  
+   
+    <span class="caption">在配件的設定選單中點選加入自動化操作</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/auto2.png"  alt="選擇觸發條件類別">
+  
+   
+    <span class="caption">選擇觸發條件類別</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/auto3.jpg"  alt="選擇時間條件為日落時">
+  
+   
+    <span class="caption">選擇時間條件為日落時</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/auto4.png"  alt="選擇條件觸發時配件的動作">
+  
+   
+    <span class="caption">選擇條件觸發時配件的動作</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+我有特別觀察過他每天開燈的時間真的不太一樣，可能家庭中樞會去爬哪邊的氣象資訊抓取日落時間來開燈，真的是滿方便的。除了日落開啟花園燈外，這個配件我還設定了<strong>每天凌晨兩點自動關閉</strong>的自動化設定，這樣他就不會開一整晚浪費電啦！老婆終於可以舒服的照護草類，而我也可以廢在沙發上不用一直開關花園的燈了！
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2021/12/plug7.jpg"  alt="開啟的陽台花園燈也是老婆最愛的角落">
+  
+   
+    <span class="caption">開啟的陽台花園燈也是老婆最愛的角落</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<h1 id="table-of-contents">目錄</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#homkit-hub家庭中樞要拿來幹嘛">Homkit Hub家庭中樞要拿來幹嘛？</a></li>
+    <li><a href="#將家中閒置ipad設為家庭中樞">將家中閒置Ipad設為家庭中樞</a></li>
+    <li><a href="#把meross智慧插座加進homekit裡面">把Meross智慧插座加進Homekit裡面</a></li>
+    <li><a href="#智慧插座使用情境分享">智慧插座使用情境分享</a></li>
+  </ul>
+</nav>
+              
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">標籤</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/homekit/">homekit</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/meross/">meross</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/%E5%AE%B6%E5%BA%AD%E4%B8%AD%E6%A8%9E/">家庭中樞</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/smart-plug/">smart plug</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8B/" data-tooltip="Unifi智慧家庭防火牆規則分享(下)" aria-label="上一篇: Unifi智慧家庭防火牆規則分享(下)">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://funskie.com/post/2021/12/homekit-hub%E5%AE%B6%E5%BA%AD%E4%B8%AD%E6%A8%9E%E8%A8%AD%E7%BD%AE%E8%88%87meross%E6%99%BA%E6%85%A7%E6%8F%92%E5%BA%A7%E5%88%86%E4%BA%AB/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://funskie.com/post/2021/12/homekit-hub%E5%AE%B6%E5%BA%AD%E4%B8%AD%E6%A8%9E%E8%A8%AD%E7%BD%AE%E8%88%87meross%E6%99%BA%E6%85%A7%E6%8F%92%E5%BA%A7%E5%88%86%E4%BA%AB/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://funskie.com/post/2021/12/homekit-hub%E5%AE%B6%E5%BA%AD%E4%B8%AD%E6%A8%9E%E8%A8%AD%E7%BD%AE%E8%88%87meross%E6%99%BA%E6%85%A7%E6%8F%92%E5%BA%A7%E5%88%86%E4%BA%AB/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+  
+    
+      <div class="fb-comments" data-href="https://funskie.com/post/2021/12/homekit-hub%E5%AE%B6%E5%BA%AD%E4%B8%AD%E6%A8%9E%E8%A8%AD%E7%BD%AE%E8%88%87meross%E6%99%BA%E6%85%A7%E6%8F%92%E5%BA%A7%E5%88%86%E4%BA%AB/" data-width="" data-numposts="10" data-order-by=""></div>
+    
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Funskie. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://funskie.com/post/2021/11/unifi%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87%E5%88%86%E4%BA%AB%E4%B8%8B/" data-tooltip="Unifi智慧家庭防火牆規則分享(下)" aria-label="上一篇: Unifi智慧家庭防火牆規則分享(下)">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://funskie.com/post/2021/12/homekit-hub%E5%AE%B6%E5%BA%AD%E4%B8%AD%E6%A8%9E%E8%A8%AD%E7%BD%AE%E8%88%87meross%E6%99%BA%E6%85%A7%E6%8F%92%E5%BA%A7%E5%88%86%E4%BA%AB/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://funskie.com/post/2021/12/homekit-hub%E5%AE%B6%E5%BA%AD%E4%B8%AD%E6%A8%9E%E8%A8%AD%E7%BD%AE%E8%88%87meross%E6%99%BA%E6%85%A7%E6%8F%92%E5%BA%A7%E5%88%86%E4%BA%AB/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://funskie.com/post/2021/12/homekit-hub%E5%AE%B6%E5%BA%AD%E4%B8%AD%E6%A8%9E%E8%A8%AD%E7%BD%AE%E8%88%87meross%E6%99%BA%E6%85%A7%E6%8F%92%E5%BA%A7%E5%88%86%E4%BA%AB/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffunskie.com%2Fpost%2F2021%2F12%2Fhomekit-hub%25E5%25AE%25B6%25E5%25BA%25AD%25E4%25B8%25AD%25E6%25A8%259E%25E8%25A8%25AD%25E7%25BD%25AE%25E8%2588%2587meross%25E6%2599%25BA%25E6%2585%25A7%25E6%258F%2592%25E5%25BA%25A7%25E5%2588%2586%25E4%25BA%25AB%2F" aria-label="分享到 %s Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ffunskie.com%2Fpost%2F2021%2F12%2Fhomekit-hub%25E5%25AE%25B6%25E5%25BA%25AD%25E4%25B8%25AD%25E6%25A8%259E%25E8%25A8%25AD%25E7%25BD%25AE%25E8%2588%2587meross%25E6%2599%25BA%25E6%2585%25A7%25E6%258F%2592%25E5%25BA%25A7%25E5%2588%2586%25E4%25BA%25AB%2F" aria-label="分享到 %s Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ffunskie.com%2Fpost%2F2021%2F12%2Fhomekit-hub%25E5%25AE%25B6%25E5%25BA%25AD%25E4%25B8%25AD%25E6%25A8%259E%25E8%25A8%25AD%25E7%25BD%25AE%25E8%2588%2587meross%25E6%2599%25BA%25E6%2585%25A7%25E6%258F%2592%25E5%25BA%25A7%25E5%2588%2586%25E4%25BA%25AB%2F" aria-label="分享到 %s Google&#43;">
+          <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG/" alt="作者的圖片" />
+    
+    <h4 id="about-card-name">Funskie</h4>
+    
+      <div id="about-card-bio">科技宅菜鳥現場工程師筆記</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        現場工程師
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://funskie.com/js/script-8lglxdix2nqhalxxm2bujhkcc8cctdrd5o5axonwhfzx2zqrer5facyn8.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+
