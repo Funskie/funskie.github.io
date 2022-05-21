@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/funskie.com\/",
+  "author": {
+    "@type": "Person",
+    "name": "Funskie",
+    
+    "image": "https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG"
+    
+  },
+  "name":"Funskie",
+  "description":"\u003cp\u003e經過\u003ca href=\u0022https:\/\/funskie.com\/post\/2022\/01\/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%81%B8%E6%93%87%E7%AF%87\/\u0022 target=\u0022_blank\u0022\u003e上篇\u003c\/a\u003e的介紹大家可以了解我最終選擇Meross garage door opener的緣因，那麼這篇文章就來介紹它的開箱和使用狀況吧。\u003c\/p\u003e",
+  "url":"https:\/\/funskie.com\/post\/2022\/05\/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%96%8B%E7%AE%B1%E7%AF%87\/",
+  "keywords":"[tech]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.5.1-BETA">
+<meta name="author" content="Funskie">
+<meta name="keywords" content="tech">
+<meta name="description" content="經過上篇的介紹大家可以了解我最終選擇Meross garage door opener的緣因，那麼這篇文章就來介紹它的開箱和使用狀況吧。">
+
+
+<meta property="og:description" content="經過上篇的介紹大家可以了解我最終選擇Meross garage door opener的緣因，那麼這篇文章就來介紹它的開箱和使用狀況吧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="目前使用率最高的智慧家庭裝置Meross Smart Garage介紹 開箱篇">
+<meta name="twitter:title" content="目前使用率最高的智慧家庭裝置Meross Smart Garage介紹 開箱篇">
+<meta property="og:url" content="https://funskie.com/post/2022/05/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%96%8B%E7%AE%B1%E7%AF%87/">
+<meta property="twitter:url" content="https://funskie.com/post/2022/05/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%96%8B%E7%AE%B1%E7%AF%87/">
+<meta property="og:site_name" content="Funskie">
+<meta property="og:description" content="經過上篇的介紹大家可以了解我最終選擇Meross garage door opener的緣因，那麼這篇文章就來介紹它的開箱和使用狀況吧。">
+<meta name="twitter:description" content="經過上篇的介紹大家可以了解我最終選擇Meross garage door opener的緣因，那麼這篇文章就來介紹它的開箱和使用狀況吧。">
+<meta property="og:locale" content="zh-tw">
+
+  
+    <meta property="article:published_time" content="2022-05-21T18:17:00">
+  
+  
+    <meta property="article:modified_time" content="2022-05-21T18:17:00">
+  
+  
+  
+    
+      <meta property="article:section" content="77house">
+    
+      <meta property="article:section" content="homekit">
+    
+  
+  
+    
+      <meta property="article:tag" content="homekit">
+    
+      <meta property="article:tag" content="garage">
+    
+      <meta property="article:tag" content="ismartgate">
+    
+      <meta property="article:tag" content="sonoff">
+    
+      <meta property="article:tag" content="meross">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG">
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/05/ci-0519.jpeg">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/05/ci-0519.jpeg">
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/05/ci-0519.jpeg">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/05/ci-0519.jpeg">
+
+
+
+<meta property="fb:app_id" content="&#123;877860206185200&#125;" />
+    <title>目前使用率最高的智慧家庭裝置Meross Smart Garage介紹 開箱篇</title>
+
+    <link rel="icon" href="https://funskie.com/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://funskie.com/post/2022/05/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%96%8B%E7%AE%B1%E7%AF%87/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://funskie.com/css/style-2w2urpokyukbsouppglitcyxngrsa0pcm58rrm5mqo3ieqo6bkvr3cz9nvf.min.css" />
+    
+    
+    
+      
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MSSERYEY8E"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-MSSERYEY8E', { 'anonymize_ip': false });
+}
+</script>
+
+      
+    
+    
+
+    <script data-ad-client="ca-pub-2250984481230521" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://funskie.com/" aria-label="去首頁">Funskie</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://funskie.com/#about" aria-label="打開鏈接: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG" alt="作者的圖片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://funskie.com/#about" aria-label="閱讀有關作者的更多信息">
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG" alt="作者的圖片" />
+        </a>
+        <h4 class="sidebar-profile-name">Funskie</h4>
+        
+          <h5 class="sidebar-profile-bio">科技宅菜鳥現場工程師筆記</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">首頁</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">分類</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">標籤</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">所有文章</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-address-card" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">關於</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Funskie" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.facebook.com/funs.key.5" target="_blank" rel="noopener" title="Facebook">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-facebook" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Facebook</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tzu-chi-fang-611895a3/" target="_blank" rel="noopener" title="Linkedin">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/05/ci-0519.jpeg')"
+       data-behavior="5">
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
+               ">
+        <article class="post">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      目前使用率最高的智慧家庭裝置Meross Smart Garage介紹 開箱篇
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2022-05-21T18:17:00&#43;08:00">
+        
+  五月 21, 2022
+
+      </time>
+    
+    
+  
+  
+    <span>分類</span>
+    
+      <a class="category-link" href="https://funskie.com/categories/77house">77house</a>, 
+    
+      <a class="category-link" href="https://funskie.com/categories/homekit">homekit</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>經過<a href="https://funskie.com/post/2022/01/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%81%B8%E6%93%87%E7%AF%87/" target="_blank">上篇</a>的介紹大家可以了解我最終選擇Meross garage door opener的緣因，那麼這篇文章就來介紹它的開箱和使用狀況吧。</p>
+<h1 id="meross-garage-door-opener開箱介紹">Meross garage door opener開箱介紹</h1>
+<p>當初我是從<strong>Amazon</strong>上訂購這個裝置並湊滿60鎂免運回台灣，最後大概是花了台幣1500元，盒子非常清楚地列出了他就是一個走<strong>WiFi</strong>協定的車庫門控制裝置，並且列出了支援的平台包含了<strong>Apple Homekit</strong>、<strong>Amazon Alexa</strong>還有<strong>Google Assistant</strong>。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/05/garage-01.png"  alt="Meross garage door opener外包裝">
+  
+   
+    <span class="caption">Meross garage door opener外包裝</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/05/garage-02.png"  alt="Meross garage door opener內包裝">
+  
+   
+    <span class="caption">Meross garage door opener內包裝</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+打開外殼包裝可以看到三個小盒子，裡面分別是控制器、開關磁鐵感應器與USB電源插頭，組裝上很簡單就把開關磁鐵感應器的針腳插在控制器的紅色接頭上，然後USB電源插頭接上控制器的電源USB公接頭上，應該是不會有人有辦法接錯&hellip;<br>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/05/garage-03.png"  alt="組裝後的Meross控制器與各個部件">
+  
+   
+    <span class="caption">組裝後的Meross控制器與各個部件</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<h1 id="安裝與加進家庭app管理">安裝與加進家庭APP管理</h1>
+<p>從上圖中可以看到剩下一條不長不短裡面包了咖啡色跟藍色電線的訊號控制線路，這條線的接法就比較重要了，會直接影響裝置能不能正常使用，首先大家要先關掉家裡車庫門主機的電源，然後拆開主機，看一下裡面有沒有提供給外部控制的接頭，通常這種比較新的捲門主機都會有<strong>上</strong>、<strong>中</strong>、<strong>下</strong>、<strong>GND</strong>和<strong>單循環(USD)<strong>這五個接頭(有些也有更多啦)，這邊我們</strong>Meross</strong>控制器上的兩條線要分別接在車庫捲門主機板上的<strong>GND</strong>和<strong>單循環</strong>兩個接頭上，雖然什麼顏色的線對應<strong>GND</strong>和<strong>單循環</strong>是沒有限制，但如果接到了不是<strong>GND</strong>或<strong>單循環</strong>的輕則沒辦法控制、重則把控制器燒壞大家要小心一點&hellip;
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/05/garage-04.png"  alt="控制器訊號線路連接上鐵捲門主機板示意圖">
+  
+   
+    <span class="caption">控制器訊號線路連接上鐵捲門主機板示意圖</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+<br>
+剛剛講的<strong>上</strong>、<strong>中</strong>、<strong>下</strong>、<strong>COM</strong>和<strong>單循環</strong>接頭在不同牌子的主機板上可能會有不一樣的名稱，上圖有列出比較常見的符號或名稱，大家在安裝的時候在注意一下，總之呢就是把咖啡色跟藍色電線的訊號控制線路如上圖標示的接上鐵捲門主機板的接頭，電線插進去以後記得用一字起子把接頭轉緊才不會鬆脫。<br>
+接著來處理開關磁鐵感應器，這個磁鐵感應器在碰在一起的時候會判定車庫門是<em>關好的</em>，如果磁鐵分太開感應不到磁力時他會判斷車庫門是打開的，所以我們要把開關磁鐵感應器拉線裝到<em>關好</em>的車庫捲門上。<br>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/05/garage-07.png"  alt="官方文件上對開關磁鐵感應器的介紹">
+  
+   
+    <span class="caption">官方文件上對開關磁鐵感應器的介紹</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/05/garage-05.png"  alt="直接很土炮的用雙面膠固定在車庫門上">
+  
+   
+    <span class="caption">直接很土炮的用雙面膠固定在車庫門上</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+<br>
+把該接的都接好以後可以接上控制器的電源，然後打開手機連上想讓控制器連上的<strong>WiFi</strong>名稱，這邊因為我是一樓的車庫門所以依照<a href="https://funskie.com/post/2021/10/%E5%88%A9%E7%94%A8unifi-os%E5%BB%BA%E7%AB%8B%E5%B0%88%E5%B1%AC%E7%9A%84iot-vlan/#%E6%AF%8F%E5%80%8Bap%E9%83%BD%E7%B5%A6%E6%88%91%E4%BE%86%E4%B8%80%E5%80%8Bwifi%E5%90%A7" target="_blank">之前的網路規劃</a>我們會先連上<strong>77 IOT_1f</strong>這個<strong>WiFi</strong>，然後跟上次<a href="https://funskie.com/post/2021/12/homekit-hub%E5%AE%B6%E5%BA%AD%E4%B8%AD%E6%A8%9E%E8%A8%AD%E7%BD%AE%E8%88%87meross%E6%99%BA%E6%85%A7%E6%8F%92%E5%BA%A7%E5%88%86%E4%BA%AB/#%E6%8A%8Ameross%E6%99%BA%E6%85%A7%E6%8F%92%E5%BA%A7%E5%8A%A0%E9%80%B2homekit%E8%A3%A1%E9%9D%A2" target="_blank">加入智慧插座</a>的方法一樣，先點選<strong>家庭APP</strong>左上角加入配件，然後掃描Meross garage door opener控制器上的<strong>QR code</strong>，位置我是創造一個<strong>車庫</strong>的專門空間，接著就等待控制器加進<strong>家庭APP</strong>吧！<br>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/05/garage-06.png"  alt="安裝完並加入家庭APP以後就可以收好控制器跟線材了">
+  
+   
+    <span class="caption">安裝完並加入家庭APP以後就可以收好控制器跟線材了</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+再成功把控制器加進<strong>家庭APP</strong>後，記得把鐵捲門主機的電源重新打開，然後看用什麼方法把控制器收納好以後就可以好好來測試功能是否正常了，對了要記得確認安裝控制器的位置<strong>WiFi</strong>訊號是否夠強，而且這個<strong>WiFi</strong>最好是<strong>純2.4GHz</strong>的訊號不要跟<strong>5GHz</strong>共用比較不會造成控制器斷線的問題！</p>
+<h1 id="裝上去後老婆下班不淋雨生活變便利甚至考試都考一百分呢">裝上去後老婆下班不淋雨生活變便利甚至考試都考一百分呢！</h1>
+<p>
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/05/home-ga-01.jpeg"  alt="Meross garage door opener在我家庭APP內的截圖">
+  
+   
+    <span class="caption">Meross garage door opener在我家庭APP內的截圖</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+成功把<strong>Meross garage door opener</strong>加進<strong>家庭APP</strong>後，因為他是原生支援<strong>Homekit</strong>的設備所以可以看到他在<strong>家庭APP</strong>裡是有專屬的車庫門Icon，不像我另外用Sonoff刷進來的外出門控制器只能呈現一般開關的Icon，並且因為他是專門設定成車庫門的屬性，所以他在安全上會有些特製的設定，像是一定要解鎖你的<strong>Iphone</strong>才能用<strong>Siri</strong>去控制車庫門的開關，不像其他裝置直接對著<strong>HomePod</strong>喊一下就會啟動，而且還有一個很酷的功能是當我們手機有開啟定位並且連上<strong>Carplay</strong>時，當他偵測到我們快到家了(目前測試大概200m)車上的<strong>carplay</strong>主頁會跳出車庫門的控制選項，這樣就可以在車子靠近家門的時候直接在車上開門，不需要特地再拿出手機或遙控器去控制了，這個功能我真的是用得超爽！
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/05/carplay-01.png"  alt="當車子快到家時Carplay主頁會跳出車庫門的控制選項">
+  
+   
+    <span class="caption">當車子快到家時Carplay主頁會跳出車庫門的控制選項</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+<br>
+而且<strong>家庭APP</strong>內的車庫門預設改變狀態時會通知家庭成員，所以當我們在外面上班車庫門打開了手機都會收到通知，除了防止不小心誤觸或有人偷跑進去以外，還可以發現另一半是不是偷偷蹺班跑回家鬼混了！<br>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/05/home-ga-02.png"  alt="車庫門狀態改變會通知所有家庭成員">
+  
+   
+    <span class="caption">車庫門狀態改變會通知所有家庭成員</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<p><strong>Meross garage door opener</strong>從價格到功能上都能符合我的需求，穩定度上也是滿可靠的，目前使用了快一年大概只斷線過一次，可以算是目前家裡使用最頻繁老婆也最滿意的<strong>Homekit</strong>設備了！最後附上老婆瀟灑回家用她的<strong>Apple watch</strong>開車庫門的精彩影片～
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/qsS19JZFMPY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h1 id="table-of-contents">目錄</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#meross-garage-door-opener開箱介紹">Meross garage door opener開箱介紹</a></li>
+    <li><a href="#安裝與加進家庭app管理">安裝與加進家庭APP管理</a></li>
+    <li><a href="#裝上去後老婆下班不淋雨生活變便利甚至考試都考一百分呢">裝上去後老婆下班不淋雨生活變便利甚至考試都考一百分呢！</a></li>
+  </ul>
+</nav>
+</p>
+              
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">標籤</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/homekit/">homekit</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/garage/">garage</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/ismartgate/">ismartgate</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/sonoff/">sonoff</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/meross/">meross</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://funskie.com/post/2022/01/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%81%B8%E6%93%87%E7%AF%87/" data-tooltip="目前使用率最高的智慧家庭裝置Meross Smart Garage介紹 選擇篇" aria-label="上一篇: 目前使用率最高的智慧家庭裝置Meross Smart Garage介紹 選擇篇">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://funskie.com/post/2022/05/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%96%8B%E7%AE%B1%E7%AF%87/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://funskie.com/post/2022/05/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%96%8B%E7%AE%B1%E7%AF%87/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://funskie.com/post/2022/05/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%96%8B%E7%AE%B1%E7%AF%87/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+  
+    
+      <div class="fb-comments" data-href="https://funskie.com/post/2022/05/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%96%8B%E7%AE%B1%E7%AF%87/" data-width="" data-numposts="10" data-order-by=""></div>
+    
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2022 Funskie. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://funskie.com/post/2022/01/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%81%B8%E6%93%87%E7%AF%87/" data-tooltip="目前使用率最高的智慧家庭裝置Meross Smart Garage介紹 選擇篇" aria-label="上一篇: 目前使用率最高的智慧家庭裝置Meross Smart Garage介紹 選擇篇">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://funskie.com/post/2022/05/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%96%8B%E7%AE%B1%E7%AF%87/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://funskie.com/post/2022/05/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%96%8B%E7%AE%B1%E7%AF%87/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://funskie.com/post/2022/05/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%96%8B%E7%AE%B1%E7%AF%87/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffunskie.com%2Fpost%2F2022%2F05%2F%25E7%259B%25AE%25E5%2589%258D%25E4%25BD%25BF%25E7%2594%25A8%25E7%258E%2587%25E6%259C%2580%25E9%25AB%2598%25E7%259A%2584%25E6%2599%25BA%25E6%2585%25A7%25E5%25AE%25B6%25E5%25BA%25AD%25E8%25A3%259D%25E7%25BD%25AEmeross-smart-garage%25E4%25BB%258B%25E7%25B4%25B9-%25E9%2596%258B%25E7%25AE%25B1%25E7%25AF%2587%2F" aria-label="分享到 %s Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ffunskie.com%2Fpost%2F2022%2F05%2F%25E7%259B%25AE%25E5%2589%258D%25E4%25BD%25BF%25E7%2594%25A8%25E7%258E%2587%25E6%259C%2580%25E9%25AB%2598%25E7%259A%2584%25E6%2599%25BA%25E6%2585%25A7%25E5%25AE%25B6%25E5%25BA%25AD%25E8%25A3%259D%25E7%25BD%25AEmeross-smart-garage%25E4%25BB%258B%25E7%25B4%25B9-%25E9%2596%258B%25E7%25AE%25B1%25E7%25AF%2587%2F" aria-label="分享到 %s Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ffunskie.com%2Fpost%2F2022%2F05%2F%25E7%259B%25AE%25E5%2589%258D%25E4%25BD%25BF%25E7%2594%25A8%25E7%258E%2587%25E6%259C%2580%25E9%25AB%2598%25E7%259A%2584%25E6%2599%25BA%25E6%2585%25A7%25E5%25AE%25B6%25E5%25BA%25AD%25E8%25A3%259D%25E7%25BD%25AEmeross-smart-garage%25E4%25BB%258B%25E7%25B4%25B9-%25E9%2596%258B%25E7%25AE%25B1%25E7%25AF%2587%2F" aria-label="分享到 %s Google&#43;">
+          <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG" alt="作者的圖片" />
+    
+    <h4 id="about-card-name">Funskie</h4>
+    
+      <div id="about-card-bio">科技宅菜鳥現場工程師筆記</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        現場工程師
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://funskie.com/js/script-8lglxdix2nqhalxxm2bujhkcc8cctdrd5o5axonwhfzx2zqrer5facyn8.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v11.0&appId=877860206185200&autoLogAppEvents=1" nonce="MsVHMdid"></script>
+    
+  </body>
+</html>
+
