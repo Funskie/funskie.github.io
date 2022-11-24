@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/funskie.com\/",
+  "author": {
+    "@type": "Person",
+    "name": "Funskie",
+    
+    "image": "https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG"
+    
+  },
+  "name":"Funskie",
+  "description":"\u003cp\u003e通常大家在智慧家庭的平台選擇上，預算會是一大考量，也大多是大家最終不會青睞\u003ccode\u003eHomekit\u003c\/code\u003e的主要原因之一。今天來介紹一個開源的智慧家庭專案給大家，不但可以解除很多設備不支援\u003ccode\u003eApple Homekit\u003c\/code\u003e的限制，甚至還可以讓我們客製自己的智慧家庭平台！\u003c\/p\u003e",
+  "url":"https:\/\/funskie.com\/post\/2022\/11\/home-assistant%E5%B9%B3%E5%8F%B0%E7%B0%A1%E4%BB%8B%E8%88%87%E5%AE%89%E8%A3%9D\/",
+  "keywords":"[tech]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.5.1-BETA">
+<meta name="author" content="Funskie">
+<meta name="keywords" content="tech">
+<meta name="description" content="通常大家在智慧家庭的平台選擇上，預算會是一大考量，也大多是大家最終不會青睞Homekit的主要原因之一。今天來介紹一個開源的智慧家庭專案給大家，不但可以解除很多設備不支援Apple Homekit的限制，甚至還可以讓我們客製自己的智慧家庭平台！">
+
+
+<meta property="og:description" content="通常大家在智慧家庭的平台選擇上，預算會是一大考量，也大多是大家最終不會青睞Homekit的主要原因之一。今天來介紹一個開源的智慧家庭專案給大家，不但可以解除很多設備不支援Apple Homekit的限制，甚至還可以讓我們客製自己的智慧家庭平台！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Home Assistant介紹-解放Homekit的神兵利器">
+<meta name="twitter:title" content="Home Assistant介紹-解放Homekit的神兵利器">
+<meta property="og:url" content="https://funskie.com/post/2022/11/home-assistant%E5%B9%B3%E5%8F%B0%E7%B0%A1%E4%BB%8B%E8%88%87%E5%AE%89%E8%A3%9D/">
+<meta property="twitter:url" content="https://funskie.com/post/2022/11/home-assistant%E5%B9%B3%E5%8F%B0%E7%B0%A1%E4%BB%8B%E8%88%87%E5%AE%89%E8%A3%9D/">
+<meta property="og:site_name" content="Funskie">
+<meta property="og:description" content="通常大家在智慧家庭的平台選擇上，預算會是一大考量，也大多是大家最終不會青睞Homekit的主要原因之一。今天來介紹一個開源的智慧家庭專案給大家，不但可以解除很多設備不支援Apple Homekit的限制，甚至還可以讓我們客製自己的智慧家庭平台！">
+<meta name="twitter:description" content="通常大家在智慧家庭的平台選擇上，預算會是一大考量，也大多是大家最終不會青睞Homekit的主要原因之一。今天來介紹一個開源的智慧家庭專案給大家，不但可以解除很多設備不支援Apple Homekit的限制，甚至還可以讓我們客製自己的智慧家庭平台！">
+<meta property="og:locale" content="zh-tw">
+
+  
+    <meta property="article:published_time" content="2022-11-20T22:45:40">
+  
+  
+    <meta property="article:modified_time" content="2022-11-20T22:45:40">
+  
+  
+  
+    
+      <meta property="article:section" content="77house">
+    
+      <meta property="article:section" content="home assistant">
+    
+  
+  
+    
+      <meta property="article:tag" content="homeassistant">
+    
+      <meta property="article:tag" content="homebridge">
+    
+      <meta property="article:tag" content="HOOBS">
+    
+      <meta property="article:tag" content="Starling">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG">
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png">
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png">
+
+
+
+<meta property="fb:app_id" content="&#123;877860206185200&#125;" />
+    <title>Home Assistant介紹-解放Homekit的神兵利器</title>
+
+    <link rel="icon" href="https://funskie.com/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://funskie.com/post/2022/11/home-assistant%E5%B9%B3%E5%8F%B0%E7%B0%A1%E4%BB%8B%E8%88%87%E5%AE%89%E8%A3%9D/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://funskie.com/css/style-2w2urpokyukbsouppglitcyxngrsa0pcm58rrm5mqo3ieqo6bkvr3cz9nvf.min.css" />
+    
+    
+    
+      
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MSSERYEY8E"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-MSSERYEY8E', { 'anonymize_ip': false });
+}
+</script>
+
+      
+    
+    
+
+    <script data-ad-client="ca-pub-2250984481230521" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://funskie.com/" aria-label="去首頁">Funskie</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://funskie.com/#about" aria-label="打開鏈接: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG" alt="作者的圖片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://funskie.com/#about" aria-label="閱讀有關作者的更多信息">
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG" alt="作者的圖片" />
+        </a>
+        <h4 class="sidebar-profile-name">Funskie</h4>
+        
+          <h5 class="sidebar-profile-bio">科技宅菜鳥現場工程師筆記</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">首頁</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">分類</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">標籤</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">所有文章</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-address-card" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">關於</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Funskie" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.facebook.com/funs.key.5" target="_blank" rel="noopener" title="Facebook">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-facebook" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Facebook</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tzu-chi-fang-611895a3/" target="_blank" rel="noopener" title="Linkedin">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png')"
+       data-behavior="5">
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
+               ">
+        <article class="post">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      Home Assistant介紹-解放Homekit的神兵利器
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2022-11-20T22:45:40&#43;08:00">
+        
+  十一月 20, 2022
+
+      </time>
+    
+    
+  
+  
+    <span>分類</span>
+    
+      <a class="category-link" href="https://funskie.com/categories/77house">77house</a>, 
+    
+      <a class="category-link" href="https://funskie.com/categories/home-assistant">home assistant</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>通常大家在智慧家庭的平台選擇上，預算會是一大考量，也大多是大家最終不會青睞<code>Homekit</code>的主要原因之一。今天來介紹一個開源的智慧家庭專案給大家，不但可以解除很多設備不支援<code>Apple Homekit</code>的限制，甚至還可以讓我們客製自己的智慧家庭平台！</p>
+<h1 id="可以解放homekit的方法有哪些">可以解放Homekit的方法有哪些</h1>
+<p>首先我必須先打一下預防針，目前我的<code>77house</code>還是希望以<code>Homekit</code>作為主要的智慧家庭平台，也就是說我對於其他平台或工具的使用都是以<strong>幫助我方便整合進Homekit</strong>為動機去研究的，而不是希望<code>Homekit</code>跟<code>Home assistan</code>(後面就稱<code>HA</code>)並行使用，所以對於<code>HA</code>的研究不會太深入，當然安裝或把原本不支援<code>Homekit</code>的裝置整合進<code>Homekit</code>等功能還是會介紹到，但如果是想以<code>HA</code>為主力的人可能這邊的文章不太能滿足你。</p>
+<p>說到能將原本不支援<code>Homekit</code>的裝置整合進<code>Homekit</code>這項功能，其實也不是只有<code>HA</code>能作到，軟體支援方面的還有<a href="https://homebridge.io/" target="_blank">Homebridge</a>也可以作到差不多的事情，如果你對安裝這些服務不太在行，家中也沒有可以常駐架設這些服務的設備，甚至還有像<a href="https://hoobs.com/" target="_blank">HOOBS</a>或<a href="https://www.starlinghome.io/" target="_blank">Starling Home Hub</a>這種直接接在家中網路上就幫你搞定的軟硬體整合產品(當然價格也就貴一些)。</p>
+<p>至於為何我要選擇<code>HA</code>主要是因為它是以<code>python</code>開發的開源專案(有些小Bug或想改一下原始碼至少比較看得懂)，並且跟<code>Homebridge</code>相比有比較高的客製化的能力，未來如果不想用<code>Homekit</code>了直接全部轉為<code>HA</code>來當作智慧家庭平台也很方便，當然大家也可以<code>HA</code>跟<code>Homebridge</code>一起架設並不衝突，但目前我需要加進<code>77house</code>的設備<code>HA</code>都有支援所以就沒碰過<code>Homebridge</code>了，推薦如果本身不排斥寫點小程式(其實也不太算)的人以<code>HA</code>作為解放<code>Homekit</code>的服務。
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2022/11/ha-demo.png"  alt="Home Assistant平台界面demo">
+  
+   
+    <span class="caption">Home Assistant平台界面demo</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+<h1 id="home-assistant簡介">Home assistant簡介</h1>
+<p>所以<code>HA</code>到底是什麼呢？直接從<a href="https://www.home-assistant.io/" target="_blank">官網</a>的介紹可以看到它是&mdash;<strong>由全世界熱心的創客與DIY熱衷社群所共同開發維護的基於隱私保護的居家自動化開源專案</strong>，OK!我相信大部分人看完應該還是不懂這到底是什麼東東？簡單來講<code>HA</code>不是由營利的公司所推出的產品，而是一群大善人共同創造出來的一個專案，並且這個專案開放給任何人使用或依自己喜好修改，而且他還保有了以下幾個特色：</p>
+<ul>
+<li>
+<p>兼容超過1000個智慧家庭裝置：</p>
+<p>這個可以說是<code>HA</code>最強的特點，因為各家的智慧家庭裝置都一定要走某個通訊協定並跟家裡的網路做溝通，<code>HA</code>架設以後會自動掃描家裡網路，並把網路上相容的智慧家庭裝置加進<code>HA</code>裡讓我們可以從<code>HA</code>控制這些裝置，至於他到底相容哪些牌子大家可以參考<a href="https://www.home-assistant.io/integrations" target="_blank">這個清單</a>。</p>
+</li>
+<li>
+<p>強大的自動化功能：</p>
+<p>只要是加進<code>HA</code>的裝置跟服務，都可以利用內建的自動化功能去設定這些裝置。例如讓門口的燈在天氣服務測到日落的時候自動開啟、車庫門開啟時手機跳出通知等自動化服務。</p>
+</li>
+<li>
+<p>多到數不盡的擴充插件：</p>
+<p>前面有提到<code>HA</code>是由一群善良熱情的工程師與創客們開發維護的，這群人很強幾乎每天都在開發新的擴充插件並等著把它加進<code>HA</code>裡面。</p>
+</li>
+<li>
+<p>智慧家庭的數據跟資料都可以儲存在Local端：</p>
+<p>因為<code>HA</code>是架設在你自己的裝置上(家裡的樹莓派、舊主機或NAS等)，所以你家裡的sensor等設備收集到的資料跟數據都是存在Local端，可以大大降低資料外流的風險。</p>
+</li>
+<li>
+<p>有內建的行動裝置APP：</p>
+<p><code>HA</code>有開發好簡單的行動裝置APP可以下載用手機控制家庭。</p>
+</li>
+<li>
+<p>居家能源管理系統：</p>
+<p><code>HA</code>有一個滿完整的居家能源管理系統，但這部分我比較沒有研究有興趣的可以參考他們官網的<a href="https://www.home-assistant.io/home-energy-management/" target="_blank">介紹</a>。</p>
+</li>
+</ul>
+<h1 id="ha真這麼完美">HA真這麼完美？</h1>
+<p>前面對<code>HA</code>各種吹捧應該讓各位覺得真的有這麼神嗎你講成這樣？當然他還是有些缺點，其中我認為最大的一個缺點是他的開發者們畢竟都是一群熱心創客工程師們，所以<code>HA</code>的進入門檻會相對<code>Apple Home</code>、<code>小米</code>等平台會高不少，光是安裝架設<code>HA</code>就可以搞個我們一天半天了&hellip;</p>
+<p>後續我會慢慢更新一些自己玩<code>HA</code>的文章跟大家分享，包含安裝、如何把原本建商付的攝影機加進<code>HA</code>、把<code>HA</code>的設備加進<code>Homekit</code>整合等等，再請大家多多指教啦。
+<h1 id="table-of-contents">目錄</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#可以解放homekit的方法有哪些">可以解放Homekit的方法有哪些</a></li>
+    <li><a href="#home-assistant簡介">Home assistant簡介</a></li>
+    <li><a href="#ha真這麼完美">HA真這麼完美？</a></li>
+  </ul>
+</nav>
+</p>
+              
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">標籤</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/homeassistant/">homeassistant</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/homebridge/">homebridge</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/hoobs/">HOOBS</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/starling/">Starling</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://funskie.com/post/2022/05/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%96%8B%E7%AE%B1%E7%AF%87/" data-tooltip="目前使用率最高的智慧家庭裝置Meross Smart Garage介紹 開箱篇" aria-label="上一篇: 目前使用率最高的智慧家庭裝置Meross Smart Garage介紹 開箱篇">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://funskie.com/post/2022/11/home-assistant%E5%B9%B3%E5%8F%B0%E7%B0%A1%E4%BB%8B%E8%88%87%E5%AE%89%E8%A3%9D/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://funskie.com/post/2022/11/home-assistant%E5%B9%B3%E5%8F%B0%E7%B0%A1%E4%BB%8B%E8%88%87%E5%AE%89%E8%A3%9D/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://funskie.com/post/2022/11/home-assistant%E5%B9%B3%E5%8F%B0%E7%B0%A1%E4%BB%8B%E8%88%87%E5%AE%89%E8%A3%9D/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+  
+    
+      <div class="fb-comments" data-href="https://funskie.com/post/2022/11/home-assistant%E5%B9%B3%E5%8F%B0%E7%B0%A1%E4%BB%8B%E8%88%87%E5%AE%89%E8%A3%9D/" data-width="" data-numposts="10" data-order-by=""></div>
+    
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2022 Funskie. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://funskie.com/post/2022/05/%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%E7%9A%84%E6%99%BA%E6%85%A7%E5%AE%B6%E5%BA%AD%E8%A3%9D%E7%BD%AEmeross-smart-garage%E4%BB%8B%E7%B4%B9-%E9%96%8B%E7%AE%B1%E7%AF%87/" data-tooltip="目前使用率最高的智慧家庭裝置Meross Smart Garage介紹 開箱篇" aria-label="上一篇: 目前使用率最高的智慧家庭裝置Meross Smart Garage介紹 開箱篇">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://funskie.com/post/2022/11/home-assistant%E5%B9%B3%E5%8F%B0%E7%B0%A1%E4%BB%8B%E8%88%87%E5%AE%89%E8%A3%9D/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://funskie.com/post/2022/11/home-assistant%E5%B9%B3%E5%8F%B0%E7%B0%A1%E4%BB%8B%E8%88%87%E5%AE%89%E8%A3%9D/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://funskie.com/post/2022/11/home-assistant%E5%B9%B3%E5%8F%B0%E7%B0%A1%E4%BB%8B%E8%88%87%E5%AE%89%E8%A3%9D/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffunskie.com%2Fpost%2F2022%2F11%2Fhome-assistant%25E5%25B9%25B3%25E5%258F%25B0%25E7%25B0%25A1%25E4%25BB%258B%25E8%2588%2587%25E5%25AE%2589%25E8%25A3%259D%2F" aria-label="分享到 %s Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ffunskie.com%2Fpost%2F2022%2F11%2Fhome-assistant%25E5%25B9%25B3%25E5%258F%25B0%25E7%25B0%25A1%25E4%25BB%258B%25E8%2588%2587%25E5%25AE%2589%25E8%25A3%259D%2F" aria-label="分享到 %s Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ffunskie.com%2Fpost%2F2022%2F11%2Fhome-assistant%25E5%25B9%25B3%25E5%258F%25B0%25E7%25B0%25A1%25E4%25BB%258B%25E8%2588%2587%25E5%25AE%2589%25E8%25A3%259D%2F" aria-label="分享到 %s Google&#43;">
+          <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG" alt="作者的圖片" />
+    
+    <h4 id="about-card-name">Funskie</h4>
+    
+      <div id="about-card-bio">科技宅菜鳥現場工程師筆記</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        現場工程師
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://funskie.com/js/script-8lglxdix2nqhalxxm2bujhkcc8cctdrd5o5axonwhfzx2zqrer5facyn8.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v11.0&appId=877860206185200&autoLogAppEvents=1" nonce="MsVHMdid"></script>
+    
+  </body>
+</html>
+
