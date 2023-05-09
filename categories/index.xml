@@ -6,13 +6,22 @@
     <description>Recent content in Categories on Funskie</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sun, 20 Nov 2022 22:45:40 +0800</lastBuildDate><atom:link href="https://funskie.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Mar 2023 16:30:01 +0800</lastBuildDate><atom:link href="https://funskie.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>77house</title>
       <link>https://funskie.com/categories/77house/</link>
-      <pubDate>Sun, 20 Nov 2022 22:45:40 +0800</pubDate>
+      <pubDate>Fri, 31 Mar 2023 16:30:01 +0800</pubDate>
       
       <guid>https://funskie.com/categories/77house/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homekit</title>
+      <link>https://funskie.com/categories/homekit/</link>
+      <pubDate>Fri, 31 Mar 2023 16:30:01 +0800</pubDate>
+      
+      <guid>https://funskie.com/categories/homekit/</guid>
       <description></description>
     </item>
     
@@ -22,15 +31,6 @@
       <pubDate>Sun, 20 Nov 2022 22:45:40 +0800</pubDate>
       
       <guid>https://funskie.com/categories/home-assistant/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>homekit</title>
-      <link>https://funskie.com/categories/homekit/</link>
-      <pubDate>Sat, 21 May 2022 18:17:00 +0800</pubDate>
-      
-      <guid>https://funskie.com/categories/homekit/</guid>
       <description></description>
     </item>
     

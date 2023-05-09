@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/funskie.com\/",
+  "author": {
+    "@type": "Person",
+    "name": "Funskie",
+    
+    "image": "https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG"
+    
+  },
+  "name":"Funskie",
+  "description":"\u003cp\u003e故事其實要從當初新家入住後發現建商原本付的門禁系統不敷使用，雖然有提供視訊語音的功能，但開關門跟看視訊只能在客廳的室內機上而且鈴聲又太小，實在是讓我這個懶人覺得超級不方便\u0026hellip;\u003c\/p\u003e",
+  "url":"https:\/\/funskie.com\/post\/2023\/03\/logitech-circle-view-doorbell%E6%94%AF%E6%8F%B4homekit%E7%9A%84%E5%8F%AF%E8%A6%96%E9%96%80%E9%88%B4%E9%95%B7%E9%81%94%E5%BF%AB%E4%B8%80%E5%B9%B4%E5%AF%A6%E9%9A%9B%E4%BD%BF%E7%94%A8%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB\/",
+  "keywords":"[tech]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.110.0 with theme Tranquilpeak 0.5.1-BETA">
+<meta name="author" content="Funskie">
+<meta name="keywords" content="tech">
+<meta name="description" content="故事其實要從當初新家入住後發現建商原本付的門禁系統不敷使用，雖然有提供視訊語音的功能，但開關門跟看視訊只能在客廳的室內機上而且鈴聲又太小，實在是讓我這個懶人覺得超級不方便&hellip;">
+
+
+<meta property="og:description" content="故事其實要從當初新家入住後發現建商原本付的門禁系統不敷使用，雖然有提供視訊語音的功能，但開關門跟看視訊只能在客廳的室內機上而且鈴聲又太小，實在是讓我這個懶人覺得超級不方便&hellip;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Logitech Circle View Doorbell支援Homekit的可視門鈴長達快一年實際使用經驗分享">
+<meta name="twitter:title" content="Logitech Circle View Doorbell支援Homekit的可視門鈴長達快一年實際使用經驗分享">
+<meta property="og:url" content="https://funskie.com/post/2023/03/logitech-circle-view-doorbell%E6%94%AF%E6%8F%B4homekit%E7%9A%84%E5%8F%AF%E8%A6%96%E9%96%80%E9%88%B4%E9%95%B7%E9%81%94%E5%BF%AB%E4%B8%80%E5%B9%B4%E5%AF%A6%E9%9A%9B%E4%BD%BF%E7%94%A8%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/">
+<meta property="twitter:url" content="https://funskie.com/post/2023/03/logitech-circle-view-doorbell%E6%94%AF%E6%8F%B4homekit%E7%9A%84%E5%8F%AF%E8%A6%96%E9%96%80%E9%88%B4%E9%95%B7%E9%81%94%E5%BF%AB%E4%B8%80%E5%B9%B4%E5%AF%A6%E9%9A%9B%E4%BD%BF%E7%94%A8%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/">
+<meta property="og:site_name" content="Funskie">
+<meta property="og:description" content="故事其實要從當初新家入住後發現建商原本付的門禁系統不敷使用，雖然有提供視訊語音的功能，但開關門跟看視訊只能在客廳的室內機上而且鈴聲又太小，實在是讓我這個懶人覺得超級不方便&hellip;">
+<meta name="twitter:description" content="故事其實要從當初新家入住後發現建商原本付的門禁系統不敷使用，雖然有提供視訊語音的功能，但開關門跟看視訊只能在客廳的室內機上而且鈴聲又太小，實在是讓我這個懶人覺得超級不方便&hellip;">
+<meta property="og:locale" content="zh-tw">
+
+  
+    <meta property="article:published_time" content="2023-03-31T16:30:01">
+  
+  
+    <meta property="article:modified_time" content="2023-03-31T16:30:01">
+  
+  
+  
+    
+      <meta property="article:section" content="77house">
+    
+      <meta property="article:section" content="homekit">
+    
+  
+  
+    
+      <meta property="article:tag" content="homekit">
+    
+      <meta property="article:tag" content="doorbell">
+    
+      <meta property="article:tag" content="logitech">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG">
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png">
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png">
+
+
+
+<meta property="fb:app_id" content="&#123;877860206185200&#125;" />
+    <title>Logitech Circle View Doorbell支援Homekit的可視門鈴長達快一年實際使用經驗分享</title>
+
+    <link rel="icon" href="https://funskie.com/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://funskie.com/post/2023/03/logitech-circle-view-doorbell%E6%94%AF%E6%8F%B4homekit%E7%9A%84%E5%8F%AF%E8%A6%96%E9%96%80%E9%88%B4%E9%95%B7%E9%81%94%E5%BF%AB%E4%B8%80%E5%B9%B4%E5%AF%A6%E9%9A%9B%E4%BD%BF%E7%94%A8%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://funskie.com/css/style-2w2urpokyukbsouppglitcyxngrsa0pcm58rrm5mqo3ieqo6bkvr3cz9nvf.min.css" />
+    
+    
+    
+      
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MSSERYEY8E"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-MSSERYEY8E', { 'anonymize_ip': false });
+}
+</script>
+
+      
+    
+    
+
+    <script data-ad-client="ca-pub-2250984481230521" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://funskie.com/" aria-label="去首頁">Funskie</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://funskie.com/#about" aria-label="打開鏈接: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG" alt="作者的圖片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://funskie.com/#about" aria-label="閱讀有關作者的更多信息">
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG" alt="作者的圖片" />
+        </a>
+        <h4 class="sidebar-profile-name">Funskie</h4>
+        
+          <h5 class="sidebar-profile-bio">科技宅菜鳥現場工程師筆記</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">首頁</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">分類</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">標籤</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">所有文章</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://funskie.com/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-address-card" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">關於</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Funskie" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.facebook.com/funs.key.5" target="_blank" rel="noopener" title="Facebook">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-facebook" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Facebook</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tzu-chi-fang-611895a3/" target="_blank" rel="noopener" title="Linkedin">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png')"
+       data-behavior="5">
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
+               ">
+        <article class="post">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      Logitech Circle View Doorbell支援Homekit的可視門鈴長達快一年實際使用經驗分享
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2023-03-31T16:30:01&#43;08:00">
+        
+  三月 31, 2023
+
+      </time>
+    
+    
+  
+  
+    <span>分類</span>
+    
+      <a class="category-link" href="https://funskie.com/categories/77house">77house</a>, 
+    
+      <a class="category-link" href="https://funskie.com/categories/homekit">homekit</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>故事其實要從當初新家入住後發現建商原本付的門禁系統不敷使用，雖然有提供視訊語音的功能，但開關門跟看視訊只能在客廳的室內機上而且鈴聲又太小，實在是讓我這個懶人覺得超級不方便&hellip;</p>
+<h1 id="我理想的門鈴結合門禁系統需要甚麼功能">我理想的門鈴結合門禁系統需要甚麼功能？</h1>
+<p>後來室內機的觸碰面板開始不靈敏，偶爾老婆要開門要戳個半天開始抱怨，稱職工具人立馬尋找適合的解決方案，當初列出了幾項需求並開始尋找適合的產品：</p>
+<ul>
+<li>要能接進<code>Apple Home</code></li>
+<li>有人按鈴要能手機通知不用擔心不在客廳就聽不到鈴聲</li>
+<li>要有視訊跟雙向語音的功能</li>
+<li>能沿用原本的門禁系統，最好是可以手機直接開門</li>
+</ul>
+<p>後來發現要能符合上述條件其實在一年前選擇滿少的，篩選到最後剩兩個選手在掙扎：</p>
+<ul>
+<li><a href="https://tw.store.ui.com/collections/unifi-protect-cameras/products/uvc-g4-doorbell" target="_blank">Unifi G4 Doorbell</a>：沒錯<code>Unifi</code>那時出了自家的可視門鈴，雖然沒有直接支援<code>Apple Home</code>，但其實有很多方法可以接進<code>Home App</code>裡使用。</li>
+<li><a href="https://www.logitech.com/en-us/products/cameras/circle-view-video-doorbell.html" target="_blank">Logitech Circle View Wired Doorbell</a>：這是<code>Logitech</code>推出當時唯一支援<a href="https://support.apple.com/zh-tw/guide/icloud/mme054c72692/icloud" target="_blank">HKSV</a>的可視門鈴，雖然台灣的評價不多但質感跟外觀在門鈴裡算是非常厲害的。</li>
+</ul>
+<p><code>Unifi G4 Doorbell</code>對我的優勢在於跟家裡網路同一套系統，照理說連線穩定與品質應該都會是最好的，但因為家中的<code>Router</code>是<code>Unifi夢幻機</code>沒有支援<code>Unifi protect</code>的OS，等於我如果要用這款門鈴還必須購買<code>Cloud Key Gen2 Plus</code>等主機，再利用<code>Home assistant</code>或<code>Homebridge</code>等方式接進<code>Apple Home</code>裡，雖然當時爬文下來這樣接進去的效果跟原生支援<code>Homekit</code>的產品功能都一樣，但基於預算與方便性考量最後還是選擇了<code>Logitech Circle View Wired Doorbell</code>。</p>
+<h1 id="logitech-circle-view-wired-doorbell簡易開箱">Logitech Circle View Wired Doorbell簡易開箱</h1>
+<p>話說這款門鈴也真的不好買，台灣這邊好像沒有直營管道販售，從<code>Amazon</code>上找也都一直是缺貨的狀態，最後只好多貼一點點錢找蝦皮上的代購賣家購買。</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2023/03/unbox.JPG"  alt="Logitech Circle View Doorbell內容物開箱">
+  
+   
+    <span class="caption">Logitech Circle View Doorbell內容物開箱</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>不得不說羅技這款門鈴質感真的做得不錯，雖然表面是用類似玻璃鏡面容易有水痕跟指紋殘留，但整體磨砂質感與配件都看得出有認真在設計，盒子內有門鈴主機、讓我們跟傳統門鈴連動的白色小盒子<code>chime kit</code>、協助安裝的定位透明片，還有<strong>很甘心的接線端子跟兩種不同角度的安裝基座</strong>，光是有附贈後面這兩個東西我覺得就該給他們產品設計團隊Credit了！</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2023/03/base.jpeg"  alt="附贈有角度的安裝基座讓用戶可以選擇攝影機要照往哪">
+  
+   
+    <span class="caption">附贈有角度的安裝基座讓用戶可以選擇攝影機要照往哪</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>這款門鈴安裝上需要注意的是他的輸入是8-24V電壓的<strong>交流電</strong>，官方是標記需要10VA或更高，跟台灣大多數的是DC多少V不太一樣，大家要注意一下，連線的方式是只能採用<code>2.4/5G WiFi</code>無線的方式接進<code>Home app</code>，如果門口要安裝的地方WiFi訊號不好大家就放棄這個產品吧！</p>
+<h1 id="簡易安裝介紹">簡易安裝介紹</h1>
+<p>當初決定選擇羅技這款WiFi門鈴以後就開始了安裝環境的檢查，因為我一樓的AP是最陽春的<code>U6 Lite</code>而且還隔了一個車庫跟鐵捲門，好險<code>UniFi</code>夠罩我要安裝門鈴的門口玄關還是有手機滿格的訊號，建商原本付的門鈴也留好了電源線通道房子裡的弱電箱裡，只要去購買8-24V的<strong>AC變壓器</strong>來替換掉原本的DC12V應該就沒有問題了！</p>
+<p>這款門鈴的下面留有一個<code>Micro USB</code>孔可以讓我們接上插頭開機做設定，基本上設定也非常簡單，把手機連上你要裝置連上的WiFi後靠近開機的門鈴就會自己跳出是否要接管這個裝置，然後選擇裝置在哪個區域就可以把他家進我們的<code>Home App</code>了。</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2023/03/usb.JPG"  alt="下方的micro usb提供快速的設定">
+  
+   
+    <span class="caption">下方的micro usb提供快速的設定</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>如果你的手機靠近門鈴它鳥都不鳥你也不用難過擔心，門鈴的背後還是有<code>Homekit</code>接管的<code>QR code</code>可以在APP裡面掃描接管。</p>
+<p>成功把門鈴加進我們的<code>Home App</code>以後就要開始實際安裝啦！有些人可能會想說我家門口沒有預留的門鈴線，可不可以就從內部拉前面我們拿來設定接管的<code>Micro USB</code>當作他的電源供應就好。目前這種方式我試過是不太建議，<code>USB供電</code>只是讓我們可以簡易的測試這個門鈴，直接裝在戶外長期使用其實它很容易因為電壓不穩斷線，或是有人手賤走過去看你們鈴插著<code>USB</code>線直接把它拔掉就沒得用了&hellip;</p>
+<p>因為之前建商附的室外機是吃<code>DC12V</code>的電源輸入，所以我直接沿用舊的線把室內變壓器換成另外去電器材料行買的<code>AC 12V 2A</code>變壓器，照理說這樣有<code>24VA</code>遠超過官方建議的<code>大於10VA</code>，但後來發現常常斷線，爬了一下文發現國外網友都建議用電壓高一點的變壓器才不會造成門鈴不穩定，只好又去<code>Amazon</code>買了一顆下圖右邊這種<code>AC 24V</code>總共<code>40VA</code>的變壓器，更新過常常斷線的問題算是有改善，但還是有些狀況我們後面在介紹&hellip;總之羅技這款門鈴對於電源的供應算是滿挑的，一言不和就會常常斷線，有興趣的人自己要注意一下。</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2023/03/adaptor.JPG"  alt="黑色是AC 12V 2A 白色是24V 40VA的變壓器(Adaptor)">
+  
+   
+    <span class="caption">黑色是AC 12V 2A 白色是24V 40VA的變壓器(Adaptor)</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>搞定電源端剩下的就很簡單了，選一個你喜歡的角度的安裝基座，把拉好並確定好供電規格的電線夾在安裝基座上，然後把整個基座鎖在你想放門鈴的地方，最後把門鈴扣上安裝基座就搞定啦！</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2023/03/installoutside.JPG"  alt="門鈴在門口的安裝方式">
+  
+   
+    <span class="caption">門鈴在門口的安裝方式</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>可以看到我為了攝影角度而選用斜的安裝基座並加上一個木板來擋以前建商開的大孔，算是免強通過老婆的審美&hellip;</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2023/03/installed.jpeg"  alt="Logitech Circle View Doorbell安裝完成照">
+  
+   
+    <span class="caption">Logitech Circle View Doorbell安裝完成照</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<h1 id="logitech-circle-view-doorbell功能設定介紹">Logitech circle view doorbell功能設定介紹</h1>
+<p>下圖是這款門鈴在<code>Home APP</code>裡點開的畫面，點擊紅框1可以進入到門鈴的一些設定畫面，而紅框2的按鈕可以讓我們跟門口的人對話，實測收音跟音量是都還不錯，是個方便跟被鎖在門口的朋友喇低賽的功能。</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2023/03/viewpage.jpg"  alt="Logitech Circle View Doorbell在Home APP裡的畫面">
+  
+   
+    <span class="caption">Logitech Circle View Doorbell在Home APP裡的畫面</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>如果有訂閱<code>iCloud+</code>的用戶還可以利用它的<code>HKSV</code>安全錄影功能，簡單講如果你有花錢買<code>iCloud</code>空間，而且家裡是有<code>Homekit</code>中樞的用戶，它就會自動幫你偵測一些活動並把偵測到的片段存在蘋果的<code>iCloud</code>雲端，這中間經過了蘋果特別的加密確保我們的影像不會被外人盜用，但前幾年還是有很多影星<code>iCloud</code>被外流所以這部份大家自己斟酌&hellip;但我覺得至少會比<code>X米</code>之類的強制一定要把影像送到他們伺服器還要安全就是了。所以有開啟<code>HKSV</code>功能的人就可以從紅框3上去看它存起來的偵測影像啦！</p>
+<p>點進設定畫面後會發現真的有一堆東西可以設定，首先點<code>配件</code>的選項可以看到它其實內建了<code>光源感測</code>跟<code>動作感測</code>兩種<code>sensor</code>，目前<code>Home APP</code>還沒辦法針對這兩種的<code>sensor</code>去觸發自動化，如果有想要這種進階應用的玩家可能就需要裝第三方的APP了。</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2023/03/set1.jpg"  alt="Logitech Circle View Doorbell設定畫面">
+  
+   
+    <span class="caption">Logitech Circle View Doorbell設定畫面</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>在上圖紅框2的<code>狀態和通知</code>裡面可以設定攝影機偵測到有動作或有人在門口的時候是不是要通知你，或是按下門鈴後手機要不要跳通知，裡面還有一個滿重要的選項是<code>門鈴響鈴</code>，這個選項點進去會列出你家裡所有的<code>HomePod</code>裝置，可以讓我們選擇按門鈴的時候哪顆<code>HomePod</code>要<strong>叮咚</strong>！算是非常方便的功能，也不用怕房間跟門鈴離很遠太小聲，直接擺一顆<code>HomePod</code>或<code>mini</code>就好。 <del><em>(好像花費還比較大)</em></del></p>
+<p>這邊要特別講一下上圖的紅框3跟上一段講的讓<code>HomePod</code>叮咚是不一樣的東西，這裡的<code>門鈴響鈴</code>選項是讓我們設定是否要讓之前既有的實體門鈴隨著Logitech Circle View Doorbell按下去一起響，但要能用這個功能需要用它附贈的<code>Chime kit</code>接線到既有的實體門鈴，因為我家也沒舊門鈴可以試，需要這個功能的人自己研究研究囉。</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2023/03/set2.jpg"  alt="Logitech Circle View Doorbell設定畫面">
+  
+   
+    <span class="caption">Logitech Circle View Doorbell設定畫面</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>再往下滑可以看到上圖的更多設定選項，<code>錄影選項</code>中可以讓我們設定偵測到動作時要不要把影像存起來，甚至還可以設定辨識到特定動作才錄影，<code>Homekit</code>目前支援的特定動作包含偵測到人、動物、車輛或是包裹，下面的<code>臉部辨識</code>選項會要求你在你的手機相簿人物選項中把<code>Apple</code>用演算法幫你分好的人物們加上姓名，如果你開啟了這個選項，門鈴在辨識到人臉後會去比對你人物相簿裡的人並在<code>家庭</code>APP裡通知你可能是誰誰誰在門口，在錄影的片段中如果有辨識出來的人物也會有個標記讓我們可以參考，但因為各家鏡頭會有變形跟光影變化的問題，所以這個臉部辨識的功能準確率沒有到很高，算是個趣味大於實用的功能。</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2023/03/set_man.jpg"  alt="臉部辨識開啟後門鈴辨識到相簿的人物會標記起來">
+  
+   
+    <span class="caption">臉部辨識開啟後門鈴辨識到相簿的人物會標記起來</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p><code>選取活動區域</code>這個選項則是讓我們可以畫出鏡頭內想要偵測的區域，如果人或動物等偵測對象沒有進入我們劃的區域就不會開啟偵測跟通知，建議有用的人可以認真畫一下才不會一直誤報很吵。</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure center fig-50" >
+  
+    <img class="fig-img" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/2023/03/setzone.jpg"  alt="把活動區域圈出來才不會一直誤報">
+  
+   
+    <span class="caption">把活動區域圈出來才不會一直誤報</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>這裡要注意一下前面介紹的錄影、人臉辨識跟切偵測區域等功能都是有訂閱<code>iCloud+</code>的用戶才能使用的<code>HKSV</code>安全錄影功能，而最下面的<code>夜視照明</code>功能則是門鈴內建的功能，前面有提到這款門鈴內建了<code>光源感測器</code>，如果開啟了<code>夜視照明</code>選項並且它偵測到光源偏低就會開啟鏡頭下方的照明燈幫鏡頭補光，實測在晚上其實滿亮的，而且他是有感應到有人或車經過才會亮，可以拿來示警防盜嚇嚇小偷！</p>
+<h1 id="實際使用一年的心得感想">實際使用一年的心得感想</h1>
+<p>這款門鈴從安裝使用到現在也過了一年多，實際使用上其實發生了滿多問題，這邊跟大家分享一下我踩過的坑讓有看到這篇文的人可以踩著我的屍體避坑&hellip;</p>
+<p>首先是前面安裝時有介紹到的電源輸入問題，Logitech這款門鈴實際需要的電源輸入似乎比官方宣稱的還要高一點，一開始我用一般的豆腐頭接它的<code>micro usb</code>孔做配對時發現怎麼連也連不上<code>家庭</code>APP，後來換了一個瓦數比較高的豆腐頭一下就接進<code>Homekit</code>了，這邊在做接管的時候如果連不上的人可以檢查一下電源輸入的問題。</p>
+<p>再來是當初換了<code>40VA</code>的電源供應以後過了一陣子快樂的穩定連線日子，但沒多久天氣漸熱它又開始常常斷線&hellip;頻率大概是一天會有5-10次小斷但三至五分鐘會自己重連上，可是兩三天還是會有一次大斷線需要斷電重啟才會能接回來&hellip;這個狀況爬了一下國外的論壇發現不少人提出過，一派人認為是機身過熱導致斷電降溫的保護機制，把它內建的<code>夜視照明</code>關掉可以避免溫度過高的問題，但我試過還是偶爾會斷線&hellip;</p>
+<p>其實平常小斷線會自己重連是還好不太影響日常使用，但時常給你一個大斷線要一直去把電源重開就非常麻煩，後來我乾脆在門鈴變壓器上又裝了一個<a href="https://funskie.com/post/2021/12/homekit-hub%E5%AE%B6%E5%BA%AD%E4%B8%AD%E6%A8%9E%E8%A8%AD%E7%BD%AE%E8%88%87meross%E6%99%BA%E6%85%A7%E6%8F%92%E5%BA%A7%E5%88%86%E4%BA%AB/#%E6%8A%8Ameross%E6%99%BA%E6%85%A7%E6%8F%92%E5%BA%A7%E5%8A%A0%E9%80%B2homekit%E8%A3%A1%E9%9D%A2" target="_blank">智慧插座</a>，只要發現門鈴又斷線了直接點開<code>家庭APP</code>重開一下智慧插座讓門鈴重啟&hellip;算是克難的解決方法。</p>
+<p>總結一下，<code>Logitech Circle View Doorbell</code>是款功能齊全、外觀質感很棒的產品，如果可以解決挑電源跟斷線的問題應該就會是一款完美的<code>Apple Homekit門鈴</code>，但如果以現在要購買來說我不會再選擇它，要求連線穩定跟高質感我會再加一點預算買<a href="https://tw.store.ui.com/collections/unifi-protect-cameras/products/g4-doorbell-pro" target="_blank">Unifi G4 Doorbell Pro</a>，雖然還必須買<code>UniFi Protect</code>的管理系統才能用，但它可以有線<code>Poe</code>供電連接，在穩定度跟畫質上一定屌打，而要求CP值的話我可能會選擇<a href="https://tw.store.ui.com/collections/unifi-protect-cameras/products/g4-doorbell-pro" target="_blank">Aqara G4 Doorbell</a>，甚麼不用說光價格就贏了，雖然網路好像也有些災情，但畫質跟功能上看起來跟<code>Logitech Circle View Doorbell</code>都差不多，一樣有災情的話我當然選便宜的買阿&hellip;可惜上述兩個當初都還沒出。</p>
+<h1 id="table-of-contents">目錄</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#我理想的門鈴結合門禁系統需要甚麼功能">我理想的門鈴結合門禁系統需要甚麼功能？</a></li>
+    <li><a href="#logitech-circle-view-wired-doorbell簡易開箱">Logitech Circle View Wired Doorbell簡易開箱</a></li>
+    <li><a href="#簡易安裝介紹">簡易安裝介紹</a></li>
+    <li><a href="#logitech-circle-view-doorbell功能設定介紹">Logitech circle view doorbell功能設定介紹</a></li>
+    <li><a href="#實際使用一年的心得感想">實際使用一年的心得感想</a></li>
+  </ul>
+</nav>
+              
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">標籤</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/homekit/">homekit</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/doorbell/">doorbell</a>
+
+  <a class="tag tag--primary tag--small" href="https://funskie.com/tags/logitech/">logitech</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://funskie.com/post/2022/11/home-assistant%E5%B9%B3%E5%8F%B0%E7%B0%A1%E4%BB%8B%E8%88%87%E5%AE%89%E8%A3%9D/" data-tooltip="Home Assistant介紹-解放Homekit的神兵利器" aria-label="上一篇: Home Assistant介紹-解放Homekit的神兵利器">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://funskie.com/post/2023/03/logitech-circle-view-doorbell%E6%94%AF%E6%8F%B4homekit%E7%9A%84%E5%8F%AF%E8%A6%96%E9%96%80%E9%88%B4%E9%95%B7%E9%81%94%E5%BF%AB%E4%B8%80%E5%B9%B4%E5%AF%A6%E9%9A%9B%E4%BD%BF%E7%94%A8%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://funskie.com/post/2023/03/logitech-circle-view-doorbell%E6%94%AF%E6%8F%B4homekit%E7%9A%84%E5%8F%AF%E8%A6%96%E9%96%80%E9%88%B4%E9%95%B7%E9%81%94%E5%BF%AB%E4%B8%80%E5%B9%B4%E5%AF%A6%E9%9A%9B%E4%BD%BF%E7%94%A8%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://funskie.com/post/2023/03/logitech-circle-view-doorbell%E6%94%AF%E6%8F%B4homekit%E7%9A%84%E5%8F%AF%E8%A6%96%E9%96%80%E9%88%B4%E9%95%B7%E9%81%94%E5%BF%AB%E4%B8%80%E5%B9%B4%E5%AF%A6%E9%9A%9B%E4%BD%BF%E7%94%A8%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+  
+    
+      <div class="fb-comments" data-href="https://funskie.com/post/2023/03/logitech-circle-view-doorbell%E6%94%AF%E6%8F%B4homekit%E7%9A%84%E5%8F%AF%E8%A6%96%E9%96%80%E9%88%B4%E9%95%B7%E9%81%94%E5%BF%AB%E4%B8%80%E5%B9%B4%E5%AF%A6%E9%9A%9B%E4%BD%BF%E7%94%A8%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" data-width="" data-numposts="10" data-order-by=""></div>
+    
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2023 Funskie. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://funskie.com/post/2022/11/home-assistant%E5%B9%B3%E5%8F%B0%E7%B0%A1%E4%BB%8B%E8%88%87%E5%AE%89%E8%A3%9D/" data-tooltip="Home Assistant介紹-解放Homekit的神兵利器" aria-label="上一篇: Home Assistant介紹-解放Homekit的神兵利器">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://funskie.com/post/2023/03/logitech-circle-view-doorbell%E6%94%AF%E6%8F%B4homekit%E7%9A%84%E5%8F%AF%E8%A6%96%E9%96%80%E9%88%B4%E9%95%B7%E9%81%94%E5%BF%AB%E4%B8%80%E5%B9%B4%E5%AF%A6%E9%9A%9B%E4%BD%BF%E7%94%A8%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://funskie.com/post/2023/03/logitech-circle-view-doorbell%E6%94%AF%E6%8F%B4homekit%E7%9A%84%E5%8F%AF%E8%A6%96%E9%96%80%E9%88%B4%E9%95%B7%E9%81%94%E5%BF%AB%E4%B8%80%E5%B9%B4%E5%AF%A6%E9%9A%9B%E4%BD%BF%E7%94%A8%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://funskie.com/post/2023/03/logitech-circle-view-doorbell%E6%94%AF%E6%8F%B4homekit%E7%9A%84%E5%8F%AF%E8%A6%96%E9%96%80%E9%88%B4%E9%95%B7%E9%81%94%E5%BF%AB%E4%B8%80%E5%B9%B4%E5%AF%A6%E9%9A%9B%E4%BD%BF%E7%94%A8%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffunskie.com%2Fpost%2F2023%2F03%2Flogitech-circle-view-doorbell%25E6%2594%25AF%25E6%258F%25B4homekit%25E7%259A%2584%25E5%258F%25AF%25E8%25A6%2596%25E9%2596%2580%25E9%2588%25B4%25E9%2595%25B7%25E9%2581%2594%25E5%25BF%25AB%25E4%25B8%2580%25E5%25B9%25B4%25E5%25AF%25A6%25E9%259A%259B%25E4%25BD%25BF%25E7%2594%25A8%25E7%25B6%2593%25E9%25A9%2597%25E5%2588%2586%25E4%25BA%25AB%2F" aria-label="分享到 %s Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ffunskie.com%2Fpost%2F2023%2F03%2Flogitech-circle-view-doorbell%25E6%2594%25AF%25E6%258F%25B4homekit%25E7%259A%2584%25E5%258F%25AF%25E8%25A6%2596%25E9%2596%2580%25E9%2588%25B4%25E9%2595%25B7%25E9%2581%2594%25E5%25BF%25AB%25E4%25B8%2580%25E5%25B9%25B4%25E5%25AF%25A6%25E9%259A%259B%25E4%25BD%25BF%25E7%2594%25A8%25E7%25B6%2593%25E9%25A9%2597%25E5%2588%2586%25E4%25BA%25AB%2F" aria-label="分享到 %s Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ffunskie.com%2Fpost%2F2023%2F03%2Flogitech-circle-view-doorbell%25E6%2594%25AF%25E6%258F%25B4homekit%25E7%259A%2584%25E5%258F%25AF%25E8%25A6%2596%25E9%2596%2580%25E9%2588%25B4%25E9%2595%25B7%25E9%2581%2594%25E5%25BF%25AB%25E4%25B8%2580%25E5%25B9%25B4%25E5%25AF%25A6%25E9%259A%259B%25E4%25BD%25BF%25E7%2594%25A8%25E7%25B6%2593%25E9%25A9%2597%25E5%2588%2586%25E4%25BA%25AB%2F" aria-label="分享到 %s Google&#43;">
+          <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/avatar.JPG" alt="作者的圖片" />
+    
+    <h4 id="about-card-name">Funskie</h4>
+    
+      <div id="about-card-bio">科技宅菜鳥現場工程師筆記</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        現場工程師
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://cdn.jsdelivr.net/gh/funskie/blog_pic/images/coverimg.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://funskie.com/js/script-8lglxdix2nqhalxxm2bujhkcc8cctdrd5o5axonwhfzx2zqrer5facyn8.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v11.0&appId=877860206185200&autoLogAppEvents=1" nonce="MsVHMdid"></script>
+    
+  </body>
+</html>
+
